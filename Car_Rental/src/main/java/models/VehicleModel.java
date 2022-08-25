@@ -14,8 +14,12 @@ public class VehicleModel {
     private String number;
     private int maxSeats;
     private int rentPerDay;
-    private boolean isRented;
-
+    private int isRented;
+    
+    public VehicleModel(){
+        id=-1;
+    }
+    
     public VehicleModel(int id){
         this.id=id;
     }
@@ -28,7 +32,7 @@ public class VehicleModel {
         return model;
     }
 
-    public void getModel(String model) {
+    public void setModel(String model) {
         this.model = model;
     }
     
@@ -36,8 +40,16 @@ public class VehicleModel {
         return number;
     }
     
-    public void getNumber(String number) {
+    public void setNumber(String number) {
         this.number = number;
+    }
+    
+    public int getMaxSeats() {
+        return maxSeats;
+    }
+    
+    public void setMaxSeats(int maxSeats) {
+        this.maxSeats = maxSeats;
     }
     
     public int getRentPerDay() {
@@ -48,11 +60,11 @@ public class VehicleModel {
         this.rentPerDay = rentPerDay;
     }
     
-    public boolean isRented() {
+    public int isRented() {
         return isRented;
     }
 
-    public void setRentPerDay(boolean isRented) {
+    public void setIsRented(int isRented) {
         this.isRented = isRented;
     }
     

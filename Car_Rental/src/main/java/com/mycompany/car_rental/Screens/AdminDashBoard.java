@@ -27,6 +27,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     public AdminDashBoard(UserModel user) {
         currentUser=user;
         initComponents();
+        tabbedPane.setSelectedComponent(profilePanel);
     }
 
     /**
@@ -39,7 +40,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private void initComponents() {
 
         tabbedPane = new javax.swing.JTabbedPane();
-        vehiclesPanel = new javax.swing.JPanel();
         adminsPanel = new javax.swing.JPanel();
         adminsScrollPane = new javax.swing.JScrollPane();
         adminsTable = new javax.swing.JTable();
@@ -84,6 +84,11 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         profileNewPasswordLabel = new javax.swing.JLabel();
         profileNewUsernameTF = new javax.swing.JTextField();
         profileNewPasswordTF = new javax.swing.JTextField();
+        vehiclesInternalFrame = new javax.swing.JInternalFrame();
+        vehicleTableScrollPane = new javax.swing.JScrollPane();
+        vehiclesTable = new javax.swing.JTable();
+        addRemoveUpdateManagerButtonPanel1 = new javax.swing.JPanel();
+        updateVehiclesButton = new javax.swing.JButton();
         optionPanel = new javax.swing.JPanel();
         managersButton = new javax.swing.JButton();
         vehicleButton = new javax.swing.JButton();
@@ -98,21 +103,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         setMinimumSize(new java.awt.Dimension(800, 450));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        vehiclesPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout vehiclesPanelLayout = new javax.swing.GroupLayout(vehiclesPanel);
-        vehiclesPanel.setLayout(vehiclesPanelLayout);
-        vehiclesPanelLayout.setHorizontalGroup(
-            vehiclesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        vehiclesPanelLayout.setVerticalGroup(
-            vehiclesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Vehicles", vehiclesPanel);
 
         adminsPanel.setBackground(new java.awt.Color(255, 255, 255));
         adminsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -340,6 +330,38 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Profile", profilePanel);
 
+        vehiclesInternalFrame.setBorder(null);
+        vehiclesInternalFrame.setVisible(true);
+        vehiclesInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        vehicleTableScrollPane.setViewportView(vehiclesTable);
+
+        vehiclesInternalFrame.getContentPane().add(vehicleTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 640, 380));
+
+        addRemoveUpdateManagerButtonPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        updateVehiclesButton.setText("Update List");
+        updateVehiclesButton.setPreferredSize(new java.awt.Dimension(123, 22));
+        updateVehiclesButton.setVerifyInputWhenFocusTarget(false);
+        updateVehiclesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateVehiclesButtonActionPerformed(evt);
+            }
+        });
+        addRemoveUpdateManagerButtonPanel1.add(updateVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 123, 22));
+
+        vehiclesInternalFrame.getContentPane().add(addRemoveUpdateManagerButtonPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 120));
+
+        tabbedPane.addTab("Vehicles", vehiclesInternalFrame);
+
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -110, 640, 560));
 
         optionPanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -411,7 +433,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_managersButtonActionPerformed
 
     private void vehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleButtonActionPerformed
-        tabbedPane.setSelectedComponent(vehiclesPanel);
+        updateVehicleTable();
+        tabbedPane.setSelectedComponent(vehiclesInternalFrame);
     }//GEN-LAST:event_vehicleButtonActionPerformed
 
     private void vehicleCategoriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCategoriesButtonActionPerformed
@@ -690,10 +713,39 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         }
     }
     
+    private void updateVehicleTable(){
+        final String statement = "SELECT * from vehicles";
+        try {
+            PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            final String[] headerName = {"ID","Model", "Number","Max Seats","Rent/Day","On Rent"};
+            DefaultTableModel model = new DefaultTableModel(null, headerName);
+            vehiclesTable.setModel(model);
+            Object[] row = new Object[6];
+
+            while (resultSet.next()) {
+                row[0] = resultSet.getString("id");
+                row[1] = resultSet.getString("model");
+                row[2] = resultSet.getString("number");
+                row[3] = resultSet.getString("max_seats");
+                row[4] = resultSet.getString("rent_per_day");
+                row[5] = resultSet.getString("is_rented");
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     private void managerUpdateManagerNewUnameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerUpdateManagerNewUnameTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_managerUpdateManagerNewUnameTFActionPerformed
+
+    private void updateVehiclesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateVehiclesButtonActionPerformed
+        new AddVehicle(currentUser).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_updateVehiclesButtonActionPerformed
 
     private int updateUser(UserModel user){
         String newUsername=user.getUsername();
@@ -776,6 +828,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JButton addManagerAccessButton;
     private javax.swing.JPanel addManagerPanel;
     private javax.swing.JPanel addRemoveUpdateManagerButtonPanel;
+    private javax.swing.JPanel addRemoveUpdateManagerButtonPanel1;
     private javax.swing.JTabbedPane addRemoveUpdateTabbedPanel;
     private javax.swing.JButton adminsButton;
     private javax.swing.JPanel adminsPanel;
@@ -821,10 +874,13 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JButton updateManagerAccessButton;
     private javax.swing.JPanel updateManagerPanel;
+    private javax.swing.JButton updateVehiclesButton;
     private javax.swing.JButton vehicleButton;
     private javax.swing.JButton vehicleCategoriesButton;
     private javax.swing.JPanel vehicleCategoriesPanel;
-    private javax.swing.JPanel vehiclesPanel;
+    private javax.swing.JScrollPane vehicleTableScrollPane;
+    private javax.swing.JInternalFrame vehiclesInternalFrame;
+    private javax.swing.JTable vehiclesTable;
     // End of variables declaration//GEN-END:variables
 
 }

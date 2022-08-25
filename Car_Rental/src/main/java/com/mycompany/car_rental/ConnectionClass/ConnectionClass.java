@@ -32,6 +32,17 @@ public class ConnectionClass {
                         + "PRIMARY KEY(id))";
                 PreparedStatement preparedStatement = connection.prepareStatement(statement);
                 preparedStatement.execute();
+                
+                statement = "CREATE TABLE IF NOT EXISTS vehicles(id INT NOT NULL AUTO_INCREMENT, "
+                        + "model VARCHAR(255), "
+                        + "number VARCHAR(255), "
+                        + "max_seats INT,"
+                        + "rent_per_day INT, "
+                        + "is_rented INT,"
+                        + "PRIMARY KEY(id))";
+                preparedStatement = connection.prepareStatement(statement);
+                preparedStatement.execute();
+                
             }
 
         } catch (SQLException ex) {
