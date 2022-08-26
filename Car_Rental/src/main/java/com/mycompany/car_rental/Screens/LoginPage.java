@@ -6,6 +6,7 @@ package com.mycompany.car_rental.Screens;
 
 import constants.Values;
 import com.mycompany.car_rental.ConnectionClass.ConnectionClass;
+import static constants.Values.MANAGER_ROLE;
 import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +27,10 @@ public class LoginPage extends javax.swing.JFrame implements Values{
      */
     public LoginPage() {
         initComponents();
+        if(numOfAdmin()>=2){
+            LogInBackGroundPanel.remove(clickHereLabel);
+            LogInBackGroundPanel.remove(signUpLabel);   
+        }
     }
 
     /**
@@ -49,7 +54,7 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         invalidUserOrPassLabel = new javax.swing.JLabel();
         emptyPassLabel = new javax.swing.JLabel();
         emptyUsernameLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         loginBackGroundIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,14 +135,14 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         emptyUsernameLabel.setText("Username Empty!");
         LogInBackGroundPanel.add(emptyUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 190, -1));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButton1.setText("Close");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        closeButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
-        LogInBackGroundPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 70, -1));
+        LogInBackGroundPanel.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 70, -1));
 
         getContentPane().add(LogInBackGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 480, 360));
 
@@ -193,12 +198,14 @@ public class LoginPage extends javax.swing.JFrame implements Values{
 
         if(isValidUser(username,password)){
             
-            switch (user.getRole()) {
+            switch (loginUser.getRole()) {
                 case ADMIN_ROLE:
-                    new AdminDashBoard(user).setVisible(true);
+                    new AdminDashBoard(loginUser).setVisible(true);
                     dispose();
                     break;
                 case MANAGER_ROLE:
+                    new ManagerDashBoard(loginUser).setVisible(true);
+                    dispose();
                     break;
                 case EMPLOYEE_ROLE:
                     break;
@@ -217,17 +224,17 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         dispose();
     }//GEN-LAST:event_clickHereLabelMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         System.exit(0); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_closeButtonActionPerformed
     
     
     private boolean isValidUser(String username, String password) {
         if(username.equalsIgnoreCase("admin")&&password.equalsIgnoreCase("pass")){    
-            user=new UserModel(-1);
-            user.setPassword(password);
-            user.setUsername(username);
-            user.setRole(ADMIN_ROLE);
+            loginUser=new UserModel(-1);
+            loginUser.setPassword(password);
+            loginUser.setUsername(username);
+            loginUser.setRole(ADMIN_ROLE);
             return true;
         }
         
@@ -241,10 +248,10 @@ public class LoginPage extends javax.swing.JFrame implements Values{
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                user=new UserModel(Integer.parseInt(resultSet.getString("id")));
-                user.setRole(resultSet.getInt("role"));
-                user.setUsername(username);
-                user.setPassword(password);
+                loginUser=new UserModel(Integer.parseInt(resultSet.getString("id")));
+                loginUser.setRole(resultSet.getInt("role"));
+                loginUser.setUsername(username);
+                loginUser.setPassword(password);
                 return true;
             }
         } catch (SQLException ex) {
@@ -289,15 +296,33 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         });
     }
     
-    public static UserModel user;
+    private int numOfAdmin() {
+        int count=0;
+        
+        final String statement = "SELECT * from users where role=?";
+        try {
+            PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
+            preparedStatement.setInt(1, ADMIN_ROLE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                count++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
+    
+    public static UserModel loginUser;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LogInBackGroundPanel;
     private javax.swing.JLabel clickHereLabel;
+    private javax.swing.JButton closeButton;
     private javax.swing.JLabel emptyPassLabel;
     private javax.swing.JLabel emptyUsernameLabel;
     private javax.swing.JLabel invalidUserOrPassLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton logInButton;
     private javax.swing.JPasswordField logInPasswordField;
     private javax.swing.JTextField logInUserNameTextField;
@@ -307,6 +332,5 @@ public class LoginPage extends javax.swing.JFrame implements Values{
     private javax.swing.JLabel signUpLabel;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
-
-    
+ 
 }

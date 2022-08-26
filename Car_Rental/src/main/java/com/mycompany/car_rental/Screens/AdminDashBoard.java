@@ -483,17 +483,20 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             JOptionPane.showMessageDialog(null, "Incorrect password");
             return;
         }
+        UserModel updatedUser=new UserModel(currentUser.getID());
+        updatedUser.setUsername(newUsername);
+        updatedUser.setPassword(newPassword);
+        updatedUser.setRole(currentUser.getRole());
         
-        currentUser.setUsername(newUsername);
-        currentUser.setPassword(newPassword);
-        
-        int answer = updateUser(currentUser);
+        int answer = updateUser(updatedUser);
         
         switch (answer) {
                 case USERNAME_ALREAD_IN_USE:
                     JOptionPane.showMessageDialog(null, "Username already used");
                     break;
                 case UPDATE_SUCCESSFUL:
+                    currentUser.setUsername(newUsername);
+                    currentUser.setPassword(newPassword);
                     JOptionPane.showMessageDialog(null, "Value Updated");
                     profileUsernameLabel.setText(currentUser.getUsername());
                     updateAdminTabel();
