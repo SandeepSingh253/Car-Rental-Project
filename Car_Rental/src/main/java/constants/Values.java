@@ -27,6 +27,12 @@ public interface Values {
     public static final int VEHICLE_ADDED=1;
     public static final int VEHICLE_NOT_ADDED=0;
     
+    public static final int CUSTOMER_ADDED=1;
+    public static final int CUSTOMER_NOT_ADDED=0;
+    
     public static final int NOT_RENTED=0;
     public static final int IS_RENTED=1;
+    
+    public static final int MINIMUM_SEATS=1;
+    
 }

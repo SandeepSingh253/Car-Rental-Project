@@ -23,7 +23,7 @@ public class ConnectionClass {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Car_Rental", "root", "");
             if (connection != null) {
-                System.out.println("connected");
+                //System.out.println("connected");
 
                 String statement = "CREATE TABLE IF NOT EXISTS users(id INT NOT NULL AUTO_INCREMENT, "
                         + "username VARCHAR(255), "
@@ -39,6 +39,18 @@ public class ConnectionClass {
                         + "max_seats INT,"
                         + "rent_per_day INT, "
                         + "is_rented INT,"
+                        + "PRIMARY KEY(id))";
+                preparedStatement = connection.prepareStatement(statement);
+                preparedStatement.execute();
+                
+                statement = "CREATE TABLE IF NOT EXISTS customers(id INT NOT NULL AUTO_INCREMENT, "
+                        + "name VARCHAR(255), "
+                        + "address VARCHAR(255), "
+                        + "phone_number VARCHAR(255),"
+                        + "rented_on_date VARCHAR(255), "
+                        + "rented_for_days VARCHAR(255), "
+                        + "vehicle_rented VARCHAR(255), "
+                        + "amount_paid VARCHAR(255), "
                         + "PRIMARY KEY(id))";
                 preparedStatement = connection.prepareStatement(statement);
                 preparedStatement.execute();

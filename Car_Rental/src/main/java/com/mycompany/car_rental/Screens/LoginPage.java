@@ -208,6 +208,8 @@ public class LoginPage extends javax.swing.JFrame implements Values{
                     dispose();
                     break;
                 case EMPLOYEE_ROLE:
+                    new EmployeeDashBoard(loginUser).setVisible(true);
+                    dispose();
                     break;
                 default:
                     break;
@@ -304,7 +306,6 @@ public class LoginPage extends javax.swing.JFrame implements Values{
             PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
             preparedStatement.setInt(1, ADMIN_ROLE);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             while (resultSet.next()) {
                 count++;
             }

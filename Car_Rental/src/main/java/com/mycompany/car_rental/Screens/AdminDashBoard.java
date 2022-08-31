@@ -43,7 +43,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         adminsPanel = new javax.swing.JPanel();
         adminsScrollPane = new javax.swing.JScrollPane();
         adminsTable = new javax.swing.JTable();
-        vehicleCategoriesPanel = new javax.swing.JPanel();
         managesrInternalFrame = new javax.swing.JInternalFrame();
         addRemoveUpdateTabbedPanel = new javax.swing.JTabbedPane();
         addManagerPanel = new javax.swing.JPanel();
@@ -94,9 +93,10 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         vehicleButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        vehicleCategoriesButton = new javax.swing.JButton();
         adminsButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
+        billingButton = new javax.swing.JButton();
+        emplyeeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -123,21 +123,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         adminsPanel.add(adminsScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 640, 450));
 
         tabbedPane.addTab("Admins", adminsPanel);
-
-        vehicleCategoriesPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout vehicleCategoriesPanelLayout = new javax.swing.GroupLayout(vehicleCategoriesPanel);
-        vehicleCategoriesPanel.setLayout(vehicleCategoriesPanelLayout);
-        vehicleCategoriesPanelLayout.setHorizontalGroup(
-            vehicleCategoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        vehicleCategoriesPanelLayout.setVerticalGroup(
-            vehicleCategoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Vehicle Categories", vehicleCategoriesPanel);
 
         managesrInternalFrame.setBorder(null);
         managesrInternalFrame.setToolTipText("");
@@ -397,14 +382,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         jLabel1.setText("ADMIN");
         optionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 110, 40));
 
-        vehicleCategoriesButton.setText("Vehicle categories");
-        vehicleCategoriesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleCategoriesButtonActionPerformed(evt);
-            }
-        });
-        optionPanel.add(vehicleCategoriesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 140, -1));
-
         adminsButton.setText("Admins");
         adminsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,6 +398,22 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 80, -1));
 
+        billingButton.setText("Billing");
+        billingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                billingButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(billingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, -1));
+
+        emplyeeButton.setText("Employee");
+        emplyeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emplyeeButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(emplyeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, -1));
+
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
         pack();
@@ -436,11 +429,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         updateVehicleTable();
         tabbedPane.setSelectedComponent(vehiclesInternalFrame);
     }//GEN-LAST:event_vehicleButtonActionPerformed
-
-    private void vehicleCategoriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCategoriesButtonActionPerformed
-
-        tabbedPane.setSelectedComponent(vehicleCategoriesPanel);
-    }//GEN-LAST:event_vehicleCategoriesButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         dispose();
@@ -592,6 +580,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         int userRole=user.getRole();
         if(userRole!=MANAGER_ROLE){
             JOptionPane.showMessageDialog(null, "No such manager exist");
+            return;
         }
         
         boolean managerDeleted=deleteUser(user.getUsername());
@@ -617,8 +606,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         
         String newUsername = managerUpdateManagerNewUnameTF.getText();
         String newPassword = managerUpdateManagerNewPasswordTF.getText();
-        newUser.setUsername(newUsername);
-        newUser.setPassword(newPassword);
+        
         if (newUsername.isBlank()) {
             JOptionPane.showMessageDialog(null, "Enter email");
             return;
@@ -627,20 +615,24 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             JOptionPane.showMessageDialog(null, "Enter password");
             return;
         }
+        
+        newUser.setUsername(newUsername);
+        newUser.setPassword(newPassword);
+        
         int userUpdate=updateUser(newUser);
             
-            switch (userUpdate) {
-                case USERNAME_ALREAD_IN_USE:
-                    break;
-                case UPDATE_SUCCESSFUL:
-                     updateManagerTable();
-                    break;
-                case UPDATE_UNSUCCESSFUL:
-                    
-                    break;
-                default:
-                    break;
-            }
+        switch (userUpdate) {
+            case USERNAME_ALREAD_IN_USE:
+                break;
+            case UPDATE_SUCCESSFUL:
+                 updateManagerTable();
+                break;
+            case UPDATE_UNSUCCESSFUL:
+
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_managerUpdateManagerUpdateButtonActionPerformed
     
     private int addUser(String username,String password,int role){
@@ -669,7 +661,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
                     return USER_ADDED;
                 }
             } catch (SQLException ex) {
-                System.out.println("error in " + AdminSignUp.class.getName() + " = " + ex);
+                System.out.println("error in " + AdminDashBoard.class.getName() + " = " + ex);
             }
         return USER_NOT_ADDED;
     }
@@ -701,7 +693,12 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             preparedStatement.setInt(1, MANAGER_ROLE);
             ResultSet resultSet = preparedStatement.executeQuery();
             final String[] headerName = {"ID","Username", "Password"};
-            DefaultTableModel model = new DefaultTableModel(null, headerName);
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
             managerTable.setModel(model);
             Object[] row = new Object[3];
 
@@ -723,7 +720,12 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             
             ResultSet resultSet = preparedStatement.executeQuery();
             final String[] headerName = {"ID","Model", "Number","Max Seats","Rent/Day","On Rent"};
-            DefaultTableModel model = new DefaultTableModel(null, headerName);
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
             vehiclesTable.setModel(model);
             Object[] row = new Object[6];
 
@@ -749,6 +751,16 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         new AddVehicle(currentUser).setVisible(true);
         dispose();
     }//GEN-LAST:event_updateVehiclesButtonActionPerformed
+
+    private void billingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billingButtonActionPerformed
+        new BillingScreen(currentUser).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_billingButtonActionPerformed
+
+    private void emplyeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emplyeeButtonActionPerformed
+        new UpdateEmployee(currentUser).setVisible(true);
+        dispose(); 
+    }//GEN-LAST:event_emplyeeButtonActionPerformed
 
     private int updateUser(UserModel user){
         String newUsername=user.getUsername();
@@ -808,7 +820,12 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             preparedStatement.setInt(1, ADMIN_ROLE);
             ResultSet resultSet = preparedStatement.executeQuery();
             final String[] headerName = {"ID","Username", "Role"};
-            DefaultTableModel model = new DefaultTableModel(null, headerName);
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
             adminsTable.setModel(model);
             Object[] row = new Object[3];
 
@@ -837,6 +854,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JPanel adminsPanel;
     private javax.swing.JScrollPane adminsScrollPane;
     private javax.swing.JTable adminsTable;
+    private javax.swing.JButton billingButton;
+    private javax.swing.JButton emplyeeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JButton managerAddManagerButton;
@@ -879,8 +898,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JPanel updateManagerPanel;
     private javax.swing.JButton updateVehiclesButton;
     private javax.swing.JButton vehicleButton;
-    private javax.swing.JButton vehicleCategoriesButton;
-    private javax.swing.JPanel vehicleCategoriesPanel;
     private javax.swing.JScrollPane vehicleTableScrollPane;
     private javax.swing.JInternalFrame vehiclesInternalFrame;
     private javax.swing.JTable vehiclesTable;

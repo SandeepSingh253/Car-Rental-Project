@@ -53,18 +53,22 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
         profileNewPasswordLabel = new javax.swing.JLabel();
         profileNewUsernameTF = new javax.swing.JTextField();
         profileNewPasswordTF = new javax.swing.JTextField();
-        vehicleCategoriesPanel = new javax.swing.JPanel();
         vehiclesInternalFrame = new javax.swing.JInternalFrame();
         vehicleTableScrollPane = new javax.swing.JScrollPane();
         vehiclesTable = new javax.swing.JTable();
         updateButtonPanel = new javax.swing.JPanel();
         updateVehiclesButton = new javax.swing.JButton();
+        managersPanel = new javax.swing.JPanel();
+        managersScrollPane = new javax.swing.JScrollPane();
+        managersTable = new javax.swing.JTable();
         optionPanel = new javax.swing.JPanel();
         vehicleButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        vehicleCategoriesButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
+        billingButton = new javax.swing.JButton();
+        managersButton = new javax.swing.JButton();
+        emplyeeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -109,21 +113,6 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Admins", profilePanel);
 
-        vehicleCategoriesPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout vehicleCategoriesPanelLayout = new javax.swing.GroupLayout(vehicleCategoriesPanel);
-        vehicleCategoriesPanel.setLayout(vehicleCategoriesPanelLayout);
-        vehicleCategoriesPanelLayout.setHorizontalGroup(
-            vehicleCategoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        vehicleCategoriesPanelLayout.setVerticalGroup(
-            vehicleCategoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Vehicle Categories", vehicleCategoriesPanel);
-
         vehiclesInternalFrame.setBorder(null);
         vehiclesInternalFrame.setVisible(true);
         vehiclesInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,6 +145,26 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Vehicles", vehiclesInternalFrame);
 
+        managersPanel.setBackground(new java.awt.Color(255, 255, 255));
+        managersPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        managersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        managersScrollPane.setViewportView(managersTable);
+
+        managersPanel.add(managersScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 640, 450));
+
+        tabbedPane.addTab("Managers", managersPanel);
+
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -110, 640, 560));
 
         optionPanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -183,14 +192,6 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
         jLabel1.setText("MANAGER");
         optionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 40));
 
-        vehicleCategoriesButton.setText("Vehicle categories");
-        vehicleCategoriesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleCategoriesButtonActionPerformed(evt);
-            }
-        });
-        optionPanel.add(vehicleCategoriesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 140, -1));
-
         profileButton.setText("PROFILE");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +199,30 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
             }
         });
         optionPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 80, -1));
+
+        billingButton.setText("Billing");
+        billingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                billingButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(billingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 100, -1));
+
+        managersButton.setText("Managers");
+        managersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managersButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(managersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, -1));
+
+        emplyeeButton.setText("Employee");
+        emplyeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emplyeeButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(emplyeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 100, -1));
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
@@ -214,11 +239,6 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
         dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_logOutButtonActionPerformed
-
-    private void vehicleCategoriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCategoriesButtonActionPerformed
-
-        tabbedPane.setSelectedComponent(vehicleCategoriesPanel);
-    }//GEN-LAST:event_vehicleCategoriesButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         tabbedPane.setSelectedComponent(profilePanel);
@@ -275,6 +295,21 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
                 break;
         }
     }//GEN-LAST:event_profileupdateProfileButtonActionPerformed
+
+    private void billingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billingButtonActionPerformed
+        new BillingScreen(currentUser).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_billingButtonActionPerformed
+
+    private void managersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managersButtonActionPerformed
+        updateManagersTabel();
+        tabbedPane.setSelectedComponent(managersPanel);
+    }//GEN-LAST:event_managersButtonActionPerformed
+
+    private void emplyeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emplyeeButtonActionPerformed
+        new UpdateEmployee(currentUser).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_emplyeeButtonActionPerformed
     
     private void updateVehiclesTable(){
     
@@ -285,7 +320,12 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
             ResultSet resultSet = preparedStatement.executeQuery();
             
             final String[] headerName = {"ID","Model", "Number","Max Seats","Rent/Day","On Rent"};
-            DefaultTableModel model = new DefaultTableModel(null, headerName);
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
             vehiclesTable.setModel(model);
             Object[] row = new Object[6];
 
@@ -299,7 +339,7 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
                 model.addRow(row);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManagerDashBoard.class.getName()).log(Level.SEVERE, null, ex);
         }
  
     }  
@@ -333,15 +373,50 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
                 return UPDATE_SUCCESSFUL;
             } 
         } catch (SQLException ex) {
-            System.out.println("error in " + AdminDashBoard.class.getName() + " = " + ex);
+            System.out.println("error in " + ManagerDashBoard.class.getName() + " = " + ex);
         }    
         
         return UPDATE_UNSUCCESSFUL;
     }
+    
+    private void updateManagersTabel() {
+        final String statement = "SELECT * from users where role=?";
+        try {
+            PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
+            preparedStatement.setInt(1, MANAGER_ROLE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            final String[] headerName = {"ID","Username", "Role"};
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
+            managersTable.setModel(model);
+            Object[] row = new Object[3];
+
+            while (resultSet.next()) {
+                row[0] = resultSet.getString("id");
+                row[1] = resultSet.getString("username");
+                row[2] = resultSet.getInt("role");
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManagerDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton billingButton;
+    private javax.swing.JButton emplyeeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logOutButton;
+    private javax.swing.JButton managersButton;
+    private javax.swing.JPanel managersPanel;
+    private javax.swing.JScrollPane managersScrollPane;
+    private javax.swing.JTable managersTable;
     private javax.swing.JPanel optionPanel;
     private javax.swing.JButton profileButton;
     private javax.swing.JLabel profileCurrentUserLabel;
@@ -359,8 +434,6 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JPanel updateButtonPanel;
     private javax.swing.JButton updateVehiclesButton;
     private javax.swing.JButton vehicleButton;
-    private javax.swing.JButton vehicleCategoriesButton;
-    private javax.swing.JPanel vehicleCategoriesPanel;
     private javax.swing.JScrollPane vehicleTableScrollPane;
     private javax.swing.JInternalFrame vehiclesInternalFrame;
     private javax.swing.JTable vehiclesTable;

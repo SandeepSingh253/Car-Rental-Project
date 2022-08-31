@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import models.UserModel;
+import models.*;
 
 /**
  *
@@ -21,6 +21,7 @@ import models.UserModel;
 public class BillingScreen extends javax.swing.JFrame implements Values{
 
     private final UserModel currentUser;
+    private VehicleModel selectedVehicle;
 
     /**
      * Creates new form BillingScreen
@@ -28,6 +29,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     public BillingScreen(UserModel currentUser) {
         this.currentUser=currentUser;
         initComponents();
+        updateAvailableVehiclesTable(1);
+        tabbedPane.setSelectedComponent(rentInternalFrame);
     }
 
     /**
@@ -40,49 +43,202 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     private void initComponents() {
 
         tabbedPane = new javax.swing.JTabbedPane();
-        vehiclesInternalFrame = new javax.swing.JInternalFrame();
-        vehicleTableScrollPane = new javax.swing.JScrollPane();
-        vehiclesTable = new javax.swing.JTable();
+        returnInternalFrame = new javax.swing.JInternalFrame();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        onRentVehiclesTable = new javax.swing.JTable();
+        returnedButton = new javax.swing.JButton();
+        rentInternalFrame = new javax.swing.JInternalFrame();
+        cutomerNameLabel = new javax.swing.JLabel();
+        billingDetailsLabel = new javax.swing.JLabel();
+        cutomerPhoneNumLabel = new javax.swing.JLabel();
+        cutomerAddressLabel = new javax.swing.JLabel();
+        rentCustomerNameTF = new javax.swing.JTextField();
+        rentCustomerPhoneNumberTF = new javax.swing.JTextField();
+        rentCustomerAddressTF = new javax.swing.JTextField();
+        cutomerDaysLabel = new javax.swing.JLabel();
+        rentCustomerDaysTF = new javax.swing.JTextField();
+        rentSelectVehicleTableScrollPane = new javax.swing.JScrollPane();
+        rentSelectVehicleTable = new javax.swing.JTable();
+        cutomerFIlerLabel = new javax.swing.JLabel();
+        rentCustomerMaxSeatsTF = new javax.swing.JTextField();
+        cutomerVehicleSelectedLabel = new javax.swing.JLabel();
+        rentSelectedVehilceNumber = new javax.swing.JLabel();
+        billButton = new javax.swing.JButton();
+        cutomerAmountLabel = new javax.swing.JLabel();
+        rentCustomerAmountTF = new javax.swing.JTextField();
+        cutomerRentedOnLabel = new javax.swing.JLabel();
+        rentCustomerRentedOnTF = new javax.swing.JTextField();
+        rentFilterButton = new javax.swing.JButton();
+        dialogeLabel = new javax.swing.JLabel();
         optionPanel = new javax.swing.JPanel();
-        vehicleButton = new javax.swing.JButton();
         goBackButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        BillingLabel = new javax.swing.JLabel();
+        returnButton = new javax.swing.JButton();
+        rentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        vehiclesInternalFrame.setBorder(null);
-        vehiclesInternalFrame.setVisible(true);
-        vehiclesInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        returnInternalFrame.setBorder(null);
+        returnInternalFrame.setVisible(true);
+        returnInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
+        onRentVehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        vehicleTableScrollPane.setViewportView(vehiclesTable);
+        jScrollPane2.setViewportView(onRentVehiclesTable);
 
-        vehiclesInternalFrame.getContentPane().add(vehicleTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 640, 450));
+        returnInternalFrame.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 390));
 
-        tabbedPane.addTab("Vehicles", vehiclesInternalFrame);
+        returnedButton.setText("Returned");
+        returnedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnedButtonActionPerformed(evt);
+            }
+        });
+        returnInternalFrame.getContentPane().add(returnedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        tabbedPane.addTab("Return", returnInternalFrame);
+
+        rentInternalFrame.setBorder(null);
+        rentInternalFrame.setVisible(true);
+        rentInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cutomerNameLabel.setText("Name");
+        rentInternalFrame.getContentPane().add(cutomerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
+        billingDetailsLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        billingDetailsLabel.setText("Billing Details");
+        rentInternalFrame.getContentPane().add(billingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 240, 40));
+
+        cutomerPhoneNumLabel.setText("Phone Number");
+        rentInternalFrame.getContentPane().add(cutomerPhoneNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        cutomerAddressLabel.setText("Address");
+        rentInternalFrame.getContentPane().add(cutomerAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        rentCustomerNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentCustomerNameTFActionPerformed(evt);
+            }
+        });
+        rentInternalFrame.getContentPane().add(rentCustomerNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, -1));
+        rentInternalFrame.getContentPane().add(rentCustomerPhoneNumberTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 180, -1));
+        rentInternalFrame.getContentPane().add(rentCustomerAddressTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 180, -1));
+
+        cutomerDaysLabel.setText("Num Days");
+        rentInternalFrame.getContentPane().add(cutomerDaysLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
+
+        rentCustomerDaysTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rentCustomerDaysTFFocusLost(evt);
+            }
+        });
+        rentCustomerDaysTF.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                rentCustomerDaysTFInputMethodTextChanged(evt);
+            }
+        });
+        rentCustomerDaysTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentCustomerDaysTFActionPerformed(evt);
+            }
+        });
+        rentCustomerDaysTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                rentCustomerDaysTFKeyTyped(evt);
+            }
+        });
+        rentInternalFrame.getContentPane().add(rentCustomerDaysTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 180, -1));
+
+        rentSelectVehicleTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        rentSelectVehicleTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rentSelectVehicleTableMousePressed(evt);
+            }
+        });
+        rentSelectVehicleTableScrollPane.setViewportView(rentSelectVehicleTable);
+
+        rentInternalFrame.getContentPane().add(rentSelectVehicleTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 640, 200));
+
+        cutomerFIlerLabel.setText("Filter By Max Seats ");
+        rentInternalFrame.getContentPane().add(cutomerFIlerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        rentCustomerMaxSeatsTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentCustomerMaxSeatsTFActionPerformed(evt);
+            }
+        });
+        rentInternalFrame.getContentPane().add(rentCustomerMaxSeatsTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, -1));
+
+        cutomerVehicleSelectedLabel.setText("Vehicle Selected");
+        rentInternalFrame.getContentPane().add(cutomerVehicleSelectedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
+
+        rentSelectedVehilceNumber.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        rentSelectedVehilceNumber.setText("NONE");
+        rentInternalFrame.getContentPane().add(rentSelectedVehilceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+
+        billButton.setText("BILL");
+        billButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                billButtonActionPerformed(evt);
+            }
+        });
+        rentInternalFrame.getContentPane().add(billButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+
+        cutomerAmountLabel.setText("Amount");
+        rentInternalFrame.getContentPane().add(cutomerAmountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+        rentInternalFrame.getContentPane().add(rentCustomerAmountTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 70, -1));
+
+        cutomerRentedOnLabel.setText("Rented On");
+        rentInternalFrame.getContentPane().add(cutomerRentedOnLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
+        rentInternalFrame.getContentPane().add(rentCustomerRentedOnTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 180, -1));
+
+        rentFilterButton.setText("Filter");
+        rentFilterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentFilterButtonActionPerformed(evt);
+            }
+        });
+        rentInternalFrame.getContentPane().add(rentFilterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
+        rentInternalFrame.getContentPane().add(dialogeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 110, 20));
+
+        tabbedPane.addTab("Rent", rentInternalFrame);
 
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -100, -1, -1));
 
         optionPanel.setBackground(new java.awt.Color(153, 153, 153));
         optionPanel.setPreferredSize(new java.awt.Dimension(150, 450));
         optionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        vehicleButton.setText("Vehicles");
-        vehicleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleButtonActionPerformed(evt);
-            }
-        });
-        optionPanel.add(vehicleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, -1));
 
         goBackButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         goBackButton.setText("GO BACK");
@@ -93,9 +249,25 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(goBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel1.setText("BILLING");
-        optionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
+        BillingLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        BillingLabel.setText("BILLING");
+        optionPanel.add(BillingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
+
+        returnButton.setText("Return");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 100, -1));
+
+        rentButton.setText("Rent");
+        rentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(rentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, -1));
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
 
@@ -103,31 +275,168 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleButtonActionPerformed
-        updateVehiclesTable();
-        tabbedPane.setSelectedComponent(vehiclesInternalFrame);
-    }//GEN-LAST:event_vehicleButtonActionPerformed
-
     private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
         if(currentUser.getRole()==ADMIN_ROLE){
             new AdminDashBoard(currentUser).setVisible(true);   
         }else if(currentUser.getRole()==MANAGER_ROLE){
             new ManagerDashBoard(currentUser).setVisible(true);   
+        }else if(currentUser.getRole()==EMPLOYEE_ROLE){
+            new EmployeeDashBoard(currentUser).setVisible(true);
         }
         dispose(); 
     }//GEN-LAST:event_goBackButtonActionPerformed
 
-    private void updateVehiclesTable(){
+    private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
+        updateAvailableVehiclesTable(1);
+        tabbedPane.setSelectedComponent(rentInternalFrame);
+        
+    }//GEN-LAST:event_rentButtonActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        updateRentedVehiclesTable();
+        tabbedPane.setSelectedComponent(returnInternalFrame);
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void rentCustomerNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentCustomerNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentCustomerNameTFActionPerformed
+
+    private void rentCustomerMaxSeatsTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentCustomerMaxSeatsTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentCustomerMaxSeatsTFActionPerformed
+
+    private void rentFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentFilterButtonActionPerformed
+
+        int filterValue=Integer.parseInt(rentCustomerMaxSeatsTF.getText());
+        
+        if(filterValue<0){
+         return;   
+        }
+        updateAvailableVehiclesTable(filterValue);
+    }//GEN-LAST:event_rentFilterButtonActionPerformed
+
+    private void rentSelectVehicleTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentSelectVehicleTableMousePressed
+        rentCustomerAmountTF.setText("");
+        
+        DefaultTableModel dtm = (DefaultTableModel) rentSelectVehicleTable.getModel();
+        int selectedRow = rentSelectVehicleTable.getSelectedRow();
+        String vehicleNumber= (String) dtm.getValueAt(selectedRow, 2);
+        selectedVehicle=getVehicle(vehicleNumber);
+        rentSelectedVehilceNumber.setText(vehicleNumber+" "+selectedVehicle.getModel()); 
+        
+        if(!rentCustomerDaysTF.getText().isBlank()){
+            int numDays=Integer.parseInt(rentCustomerDaysTF.getText());
+            rentCustomerAmountTF.setText(""+numDays*selectedVehicle.getRentPerDay());
+        }
+    }//GEN-LAST:event_rentSelectVehicleTableMousePressed
+
+    private void billButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billButtonActionPerformed
+        if(rentCustomerNameTF.getText().isBlank() || rentCustomerPhoneNumberTF.getText().isBlank() |
+                rentCustomerAddressTF.getText().isBlank() || rentCustomerRentedOnTF.getText().isBlank() || 
+                rentCustomerDaysTF.getText().isBlank() || selectedVehicle==null){
+            return;
+        }
+        
+        int answer=addCustomer();
+        switch (answer) {
+            case NUMBER_ALREAD_IN_USE:
+                return;
+            case CUSTOMER_ADDED:
+                dialogeLabel.setText("customer added");
+                return;
+            case CUSTOMER_NOT_ADDED:
+                break;
+            default:
+                break;
+        }        
+    }//GEN-LAST:event_billButtonActionPerformed
+
+    private void returnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnedButtonActionPerformed
+       DefaultTableModel dtm = (DefaultTableModel) onRentVehiclesTable.getModel();
+        int selectedRow = onRentVehiclesTable.getSelectedRow();
+        String vehicleNumber= (String) dtm.getValueAt(selectedRow, 2);
+        
+        int answer=updateRentedValue(vehicleNumber,NOT_RENTED);
+        
+        if(answer==UPDATE_SUCCESSFUL){
+            updateRentedVehiclesTable();
+        }else{
+            
+        } 
+    }//GEN-LAST:event_returnedButtonActionPerformed
+
+    private void rentCustomerDaysTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentCustomerDaysTFActionPerformed
+        String entered=rentCustomerDaysTF.getText();
+        
+        if(entered.isBlank()) return;
+        
+        if(selectedVehicle==null) return;
+        
+        int numDays=Integer.parseInt(entered);
+        rentCustomerAmountTF.setText(""+numDays*selectedVehicle.getRentPerDay());
+    }//GEN-LAST:event_rentCustomerDaysTFActionPerformed
+
+    private void rentCustomerDaysTFInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_rentCustomerDaysTFInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentCustomerDaysTFInputMethodTextChanged
+
+    private void rentCustomerDaysTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rentCustomerDaysTFKeyTyped
+
+    }//GEN-LAST:event_rentCustomerDaysTFKeyTyped
+
+    private void rentCustomerDaysTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rentCustomerDaysTFFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentCustomerDaysTFFocusLost
     
-        final String statement = "SELECT * from vehicles";
+    private void updateRentedVehiclesTable(){
+        
+        final String statement = "SELECT * from vehicles where is_rented=?" ;
         try {
             PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
-
+            preparedStatement.setInt(1, IS_RENTED);
             ResultSet resultSet = preparedStatement.executeQuery();
             
             final String[] headerName = {"ID","Model", "Number","Max Seats","Rent/Day","On Rent"};
-            DefaultTableModel model = new DefaultTableModel(null, headerName);
-            vehiclesTable.setModel(model);
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
+            onRentVehiclesTable.setModel(model);
+            Object[] row = new Object[6];
+
+            while (resultSet.next()) {
+                row[0] = resultSet.getString("id");
+                row[1] = resultSet.getString("model");
+                row[2] = resultSet.getString("number");
+                row[3] = resultSet.getInt("max_seats");
+                row[4] = resultSet.getInt("rent_per_day");
+                row[5] = resultSet.getInt("is_rented");
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void updateAvailableVehiclesTable(int filterValue){
+    
+        final String statement = "SELECT * from vehicles where max_seats>=? and is_rented=? " ;
+        try {
+            PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
+            preparedStatement.setInt(1, filterValue);
+            preparedStatement.setInt(2, NOT_RENTED);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            final String[] headerName = {"ID","Model", "Number","Max Seats","Rent/Day","On Rent"};
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
+            rentSelectVehicleTable.setModel(model);
             Object[] row = new Object[6];
 
             while (resultSet.next()) {
@@ -144,15 +453,118 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         }
  
     }  
+    
+    private int updateRentedValue(String vehicleNumber, int rentedValue) {
+        try {
+            final String insertStatement = "update vehicles set `is_rented`=? where `number`=?";
+            PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(insertStatement);
+            preparedStatement.setInt(1, rentedValue);
+            preparedStatement.setString(2, vehicleNumber);
+
+            final int isAdded = preparedStatement.executeUpdate();
+
+            if (isAdded > 0) {
+                return UPDATE_SUCCESSFUL;
+            } 
+        } catch (SQLException ex) {
+            System.out.println("error in " + AdminDashBoard.class.getName() + " = " + ex);
+        }
+        return UPDATE_UNSUCCESSFUL;
+    }
+    
+    private VehicleModel getVehicle(String number){
+    
+        try {
+            final String searchStatement = "SELECT * from vehicles where number=?";
+            PreparedStatement searchPreparedStatement = ConnectionClass.getInstance().connection.prepareStatement(searchStatement);
+            searchPreparedStatement.setString(1, number);
+            ResultSet searhResultSet = searchPreparedStatement.executeQuery();
+
+            while (searhResultSet.next()) {
+                VehicleModel vehicle=new VehicleModel(Integer.parseInt(searhResultSet.getString("id")));
+                vehicle.setNumber(searhResultSet.getString("number"));
+                vehicle.setModel(searhResultSet.getString("model"));
+                vehicle.setMaxSeats(searhResultSet.getInt("max_seats"));
+                vehicle.setRentPerDay(searhResultSet.getInt("rent_per_day"));
+                vehicle.setIsRented(searhResultSet.getInt("is_rented"));
+                
+                return vehicle;
+            }
+        } catch (SQLException ex) {
+                System.out.println("error in " + BillingScreen.class.getName() + " = " + ex);
+        }
+        return null;
+        
+    }
+    
+    private int addCustomer() {
+        String phoneNumber=rentCustomerPhoneNumberTF.getText();
+        
+        final String searchStatement = "SELECT * from customers where phone_number=?";
+        try {
+                PreparedStatement searchPreparedStatement = ConnectionClass.getInstance().connection.prepareStatement(searchStatement);
+                searchPreparedStatement.setString(1, phoneNumber);
+                
+                ResultSet searhResultSet = searchPreparedStatement.executeQuery();
+                
+                while (searhResultSet.next()) {
+                    return NUMBER_ALREAD_IN_USE;
+                }
+                
+                final String insertStatement = "INSERT INTO customers(name, address, phone_number, rented_on_date, rented_for_days, vehicle_rented, amount_paid) values(?,?,?,?,?,?,?)";
+                PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(insertStatement);
+                preparedStatement.setString(1, rentCustomerNameTF.getText());
+                preparedStatement.setString(2, rentCustomerAddressTF.getText());
+                preparedStatement.setString(3, rentCustomerPhoneNumberTF.getText());
+                preparedStatement.setString(4, rentCustomerRentedOnTF.getText());
+                preparedStatement.setString(5, rentCustomerDaysTF.getText());
+                preparedStatement.setString(6, selectedVehicle.getNumber());
+                preparedStatement.setString(7, rentCustomerAmountTF.getText());
+
+                final int isAdded = preparedStatement.executeUpdate();
+
+                if (isAdded > 0) {
+                    return CUSTOMER_ADDED;
+                }
+            } catch (SQLException ex) {
+                System.out.println("error in " + AdminSignUp.class.getName() + " = " + ex);
+            }
+        return CUSTOMER_NOT_ADDED;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BillingLabel;
+    private javax.swing.JButton billButton;
+    private javax.swing.JLabel billingDetailsLabel;
+    private javax.swing.JLabel cutomerAddressLabel;
+    private javax.swing.JLabel cutomerAmountLabel;
+    private javax.swing.JLabel cutomerDaysLabel;
+    private javax.swing.JLabel cutomerFIlerLabel;
+    private javax.swing.JLabel cutomerNameLabel;
+    private javax.swing.JLabel cutomerPhoneNumLabel;
+    private javax.swing.JLabel cutomerRentedOnLabel;
+    private javax.swing.JLabel cutomerVehicleSelectedLabel;
+    private javax.swing.JLabel dialogeLabel;
     private javax.swing.JButton goBackButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable onRentVehiclesTable;
     private javax.swing.JPanel optionPanel;
+    private javax.swing.JButton rentButton;
+    private javax.swing.JTextField rentCustomerAddressTF;
+    private javax.swing.JTextField rentCustomerAmountTF;
+    private javax.swing.JTextField rentCustomerDaysTF;
+    private javax.swing.JTextField rentCustomerMaxSeatsTF;
+    private javax.swing.JTextField rentCustomerNameTF;
+    private javax.swing.JTextField rentCustomerPhoneNumberTF;
+    private javax.swing.JTextField rentCustomerRentedOnTF;
+    private javax.swing.JButton rentFilterButton;
+    private javax.swing.JInternalFrame rentInternalFrame;
+    private javax.swing.JTable rentSelectVehicleTable;
+    private javax.swing.JScrollPane rentSelectVehicleTableScrollPane;
+    private javax.swing.JLabel rentSelectedVehilceNumber;
+    private javax.swing.JButton returnButton;
+    private javax.swing.JInternalFrame returnInternalFrame;
+    private javax.swing.JButton returnedButton;
     private javax.swing.JTabbedPane tabbedPane;
-    private javax.swing.JButton vehicleButton;
-    private javax.swing.JScrollPane vehicleTableScrollPane;
-    private javax.swing.JInternalFrame vehiclesInternalFrame;
-    private javax.swing.JTable vehiclesTable;
     // End of variables declaration//GEN-END:variables
 }
