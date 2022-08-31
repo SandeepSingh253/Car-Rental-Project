@@ -144,8 +144,7 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 460, 450));
 
-        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\loginBackGround.png")); // NOI18N
-        background.setText("jLabel1");
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginBackGround.png"))); // NOI18N
         background.setMaximumSize(new java.awt.Dimension(800, 450));
         background.setMinimumSize(new java.awt.Dimension(800, 450));
         background.setPreferredSize(new java.awt.Dimension(800, 450));

@@ -62,10 +62,10 @@ public class SplashScreen extends javax.swing.JFrame {
         loadingTextLabel.setText("Loading....");
         splashPanel.add(loadingTextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
-        splashIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\CarRentalIcon.png")); // NOI18N
+        splashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CarRentalIcon.png"))); // NOI18N
         splashPanel.add(splashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 600, 370));
 
-        walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile000.png")); // NOI18N
+        walkingAnimation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tile000.png"))); // NOI18N
         splashPanel.add(walkingAnimation, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 390, -1, 50));
 
         getContentPane().add(splashPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
@@ -135,28 +135,28 @@ public class SplashScreen extends javax.swing.JFrame {
     
     private static void setAnimationIcon(int i) {
         if(i%16==1){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile000.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile000.png")));
         }
         if(i%16==3){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile001.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile001.png")));
         }
         if(i%16==5){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile002.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile002.png")));
         }
         if(i%16==6){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile003.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile003.png")));
         }
         if(i%16==9){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile004.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile004.png")));
         }
         if(i%16==11){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile005.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile005.png")));
         }
         if(i%16==13){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile006.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile006.png")));
         }
         if(i%16==15){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\tile007.png"));
+            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile007.png")));
         }
     }
     

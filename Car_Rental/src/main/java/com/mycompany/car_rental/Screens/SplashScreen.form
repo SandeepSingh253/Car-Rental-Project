@@ -114,7 +114,7 @@
         <Component class="javax.swing.JLabel" name="splashIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\SONY VIAO\Documents\NetBeansProjects\Car_Rental\src\main\java\CarRentalIcon.png"/>
+              <Image iconType="3" name="/images/CarRentalIcon.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -126,7 +126,7 @@
         <Component class="javax.swing.JLabel" name="walkingAnimation">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\SONY VIAO\Documents\NetBeansProjects\Car_Rental\src\main\java\tile000.png"/>
+              <Image iconType="3" name="/images/tile000.png"/>
             </Property>
           </Properties>
           <Constraints>

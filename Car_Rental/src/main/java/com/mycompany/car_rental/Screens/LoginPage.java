@@ -146,7 +146,7 @@ public class LoginPage extends javax.swing.JFrame implements Values{
 
         getContentPane().add(LogInBackGroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 480, 360));
 
-        loginBackGroundIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\SONY VIAO\\Documents\\NetBeansProjects\\Car_Rental\\src\\main\\java\\loginBackGround.png")); // NOI18N
+        loginBackGroundIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginBackGround.png"))); // NOI18N
         loginBackGroundIcon.setMaximumSize(new java.awt.Dimension(800, 450));
         loginBackGroundIcon.setMinimumSize(new java.awt.Dimension(800, 450));
         loginBackGroundIcon.setPreferredSize(new java.awt.Dimension(800, 450));
