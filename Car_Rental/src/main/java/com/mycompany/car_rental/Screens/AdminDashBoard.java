@@ -92,11 +92,12 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         managersButton = new javax.swing.JButton();
         vehicleButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        adminLabel = new javax.swing.JLabel();
         adminsButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         billingButton = new javax.swing.JButton();
         emplyeeButton = new javax.swing.JButton();
+        dashBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -134,12 +135,18 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         addManagerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addMUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addMUnameLabel.setForeground(java.awt.Color.white);
         addMUnameLabel.setText("Username");
         addManagerPanel.add(addMUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
+        addMPassLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addMPassLabel.setForeground(java.awt.Color.white);
         addMPassLabel.setText("Password");
         addManagerPanel.add(addMPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
+        managerAddManagerUNameTF.setBackground(new java.awt.Color(51, 51, 51));
+        managerAddManagerUNameTF.setForeground(java.awt.Color.white);
         managerAddManagerUNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerAddManagerUNameTFActionPerformed(evt);
@@ -147,6 +154,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         addManagerPanel.add(managerAddManagerUNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 200, -1));
 
+        managerAddManagerPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        managerAddManagerPasswordTF.setForeground(java.awt.Color.white);
         managerAddManagerPasswordTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerAddManagerPasswordTFActionPerformed(evt);
@@ -154,6 +163,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         addManagerPanel.add(managerAddManagerPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, -1));
 
+        managerAddManagerButton.setBackground(new java.awt.Color(51, 51, 51));
+        managerAddManagerButton.setForeground(java.awt.Color.white);
         managerAddManagerButton.setText("ADD");
         managerAddManagerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,24 +173,32 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         addManagerPanel.add(managerAddManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
+        managerAddmanagerDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddmanagerDialogLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        managerAddmanagerDialogLabel.setForeground(null);
         addManagerPanel.add(managerAddmanagerDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 20));
 
+        managerAddManagerUNameDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddManagerUNameDialogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        managerAddManagerUNameDialogLabel.setForeground(java.awt.Color.red);
+        managerAddManagerUNameDialogLabel.setForeground(null);
         addManagerPanel.add(managerAddManagerUNameDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 20, 20));
 
+        managerAddManagerPasswordDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddManagerPasswordDialogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        managerAddManagerPasswordDialogLabel.setForeground(java.awt.Color.red);
+        managerAddManagerPasswordDialogLabel.setForeground(null);
         addManagerPanel.add(managerAddManagerPasswordDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 20, 20));
 
         addRemoveUpdateTabbedPanel.addTab("AM", addManagerPanel);
 
         removeManagerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        removeMUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        removeMUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         removeMUnameLabel.setText("Username");
         removeManagerPanel.add(removeMUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
+        managerRemoveManagerUNameTF.setBackground(new java.awt.Color(51, 51, 51));
+        managerRemoveManagerUNameTF.setForeground(new java.awt.Color(255, 255, 255));
         managerRemoveManagerUNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerRemoveManagerUNameTFActionPerformed(evt);
@@ -187,6 +206,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         removeManagerPanel.add(managerRemoveManagerUNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 200, -1));
 
+        managerRemoveManagerButton.setBackground(new java.awt.Color(51, 51, 51));
+        managerRemoveManagerButton.setForeground(new java.awt.Color(255, 255, 255));
         managerRemoveManagerButton.setText("REMOVE");
         managerRemoveManagerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,14 +220,26 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         updateManagerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        managerUpdateManagerUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         managerUpdateManagerUnameLabel.setText("Username");
         updateManagerPanel.add(managerUpdateManagerUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
+        managerUpdateManagerNewPasswordLabel.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerNewPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         managerUpdateManagerNewPasswordLabel.setText("New Password");
         updateManagerPanel.add(managerUpdateManagerNewPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        managerUpdateManagerUnameTF.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerUnameTF.setForeground(new java.awt.Color(255, 255, 255));
         updateManagerPanel.add(managerUpdateManagerUnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 190, -1));
+
+        managerUpdateManagerNewPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerNewPasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         updateManagerPanel.add(managerUpdateManagerNewPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 190, -1));
 
+        managerUpdateManagerUpdateButton.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
         managerUpdateManagerUpdateButton.setText("UPDATE");
         managerUpdateManagerUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +248,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         updateManagerPanel.add(managerUpdateManagerUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
+        managerUpdateManagerNewUnameTF.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerNewUnameTF.setForeground(new java.awt.Color(255, 255, 255));
         managerUpdateManagerNewUnameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerUpdateManagerNewUnameTFActionPerformed(evt);
@@ -222,6 +257,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         updateManagerPanel.add(managerUpdateManagerNewUnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, -1));
 
+        managerUpdateManagerNewUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        managerUpdateManagerNewUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         managerUpdateManagerNewUnameLabel.setText("New Username");
         updateManagerPanel.add(managerUpdateManagerNewUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 20));
 
@@ -231,6 +268,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         addRemoveUpdateManagerButtonPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addManagerAccessButton.setBackground(new java.awt.Color(51, 51, 51));
+        addManagerAccessButton.setForeground(new java.awt.Color(255, 255, 255));
         addManagerAccessButton.setText("Add Manager");
         addManagerAccessButton.setPreferredSize(new java.awt.Dimension(123, 22));
         addManagerAccessButton.setVerifyInputWhenFocusTarget(false);
@@ -241,6 +280,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         addRemoveUpdateManagerButtonPanel.add(addManagerAccessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 123, 22));
 
+        removeManagerAccessButton.setBackground(new java.awt.Color(51, 51, 51));
+        removeManagerAccessButton.setForeground(new java.awt.Color(255, 255, 255));
         removeManagerAccessButton.setText("Remove Manager");
         removeManagerAccessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +290,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         addRemoveUpdateManagerButtonPanel.add(removeManagerAccessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 123, 22));
 
+        updateManagerAccessButton.setBackground(new java.awt.Color(51, 51, 51));
+        updateManagerAccessButton.setForeground(new java.awt.Color(255, 255, 255));
         updateManagerAccessButton.setText("Update Manager");
         updateManagerAccessButton.setPreferredSize(new java.awt.Dimension(123, 22));
         updateManagerAccessButton.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +320,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Managers", managesrInternalFrame);
 
-        profilePanel.setBackground(new java.awt.Color(255, 255, 255));
         profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profileUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -285,14 +327,23 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         profileUsernameLabel.setText(currentUser.getUsername());
         profilePanel.add(profileUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 255, 32));
 
+        profileUpdateProfileLabel.setBackground(new java.awt.Color(51, 51, 51));
         profileUpdateProfileLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        profileUpdateProfileLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileUpdateProfileLabel.setText("Update Profile");
         profilePanel.add(profileUpdateProfileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
+        profileEnterPasswordLabel.setBackground(new java.awt.Color(51, 51, 51));
+        profileEnterPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileEnterPasswordLabel.setText("Enter Password");
         profilePanel.add(profileEnterPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        profileEnterPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        profileEnterPasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.add(profileEnterPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 200, -1));
 
+        profileupdateProfileButton.setBackground(new java.awt.Color(51, 51, 51));
+        profileupdateProfileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileupdateProfileButton.setText("UPDATE");
         profileupdateProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,15 +353,26 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         profilePanel.add(profileupdateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, -1, -1));
 
         profileCurrentUserLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        profileCurrentUserLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileCurrentUserLabel.setText("Current User");
         profilePanel.add(profileCurrentUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
+        profileNewUsernameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewUsernameLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileNewUsernameLabel.setText("New Username");
         profilePanel.add(profileNewUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
+        profileNewPasswordLabel.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileNewPasswordLabel.setText("New Password");
         profilePanel.add(profileNewPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+
+        profileNewUsernameTF.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewUsernameTF.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.add(profileNewUsernameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 200, -1));
+
+        profileNewPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewPasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.add(profileNewPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 200, -1));
 
         tabbedPane.addTab("Profile", profilePanel);
@@ -353,6 +415,9 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         optionPanel.setPreferredSize(new java.awt.Dimension(150, 450));
         optionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        managersButton.setBackground(new java.awt.Color(102, 102, 102));
+        managersButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        managersButton.setForeground(new java.awt.Color(255, 255, 255));
         managersButton.setText("Managers");
         managersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,15 +426,20 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(managersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, -1));
 
+        vehicleButton.setBackground(new java.awt.Color(102, 102, 102));
+        vehicleButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        vehicleButton.setForeground(new java.awt.Color(255, 255, 255));
         vehicleButton.setText("Vehicles");
         vehicleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vehicleButtonActionPerformed(evt);
             }
         });
-        optionPanel.add(vehicleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 100, -1));
+        optionPanel.add(vehicleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, -1));
 
+        logOutButton.setBackground(new java.awt.Color(102, 102, 102));
         logOutButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        logOutButton.setForeground(new java.awt.Color(255, 255, 255));
         logOutButton.setText("LOG OUT");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,18 +448,26 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel1.setText("ADMIN");
-        optionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 110, 40));
+        adminLabel.setBackground(new java.awt.Color(255, 255, 255));
+        adminLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        adminLabel.setForeground(new java.awt.Color(255, 255, 255));
+        adminLabel.setText("ADMIN");
+        optionPanel.add(adminLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 110, 40));
 
+        adminsButton.setBackground(new java.awt.Color(102, 102, 102));
+        adminsButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        adminsButton.setForeground(new java.awt.Color(255, 255, 255));
         adminsButton.setText("Admins");
         adminsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminsButtonActionPerformed(evt);
             }
         });
-        optionPanel.add(adminsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, -1));
+        optionPanel.add(adminsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 100, -1));
 
+        profileButton.setBackground(new java.awt.Color(102, 102, 102));
+        profileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        profileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileButton.setText("PROFILE");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,21 +476,30 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 80, -1));
 
+        billingButton.setBackground(new java.awt.Color(102, 102, 102));
+        billingButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        billingButton.setForeground(new java.awt.Color(255, 255, 255));
         billingButton.setText("Billing");
         billingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 billingButtonActionPerformed(evt);
             }
         });
-        optionPanel.add(billingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, -1));
+        optionPanel.add(billingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, -1));
 
+        emplyeeButton.setBackground(new java.awt.Color(102, 102, 102));
+        emplyeeButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        emplyeeButton.setForeground(new java.awt.Color(255, 255, 255));
         emplyeeButton.setText("Employee");
         emplyeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emplyeeButtonActionPerformed(evt);
             }
         });
-        optionPanel.add(emplyeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, -1));
+        optionPanel.add(emplyeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 100, -1));
+
+        dashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashBack.jpg"))); // NOI18N
+        optionPanel.add(dashBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 160, 500));
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
@@ -850,13 +937,14 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JPanel addRemoveUpdateManagerButtonPanel;
     private javax.swing.JPanel addRemoveUpdateManagerButtonPanel1;
     private javax.swing.JTabbedPane addRemoveUpdateTabbedPanel;
+    private javax.swing.JLabel adminLabel;
     private javax.swing.JButton adminsButton;
     private javax.swing.JPanel adminsPanel;
     private javax.swing.JScrollPane adminsScrollPane;
     private javax.swing.JTable adminsTable;
     private javax.swing.JButton billingButton;
+    private javax.swing.JLabel dashBackground;
     private javax.swing.JButton emplyeeButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JButton managerAddManagerButton;
     private javax.swing.JLabel managerAddManagerPasswordDialogLabel;

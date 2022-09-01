@@ -75,6 +75,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         BillingLabel = new javax.swing.JLabel();
         returnButton = new javax.swing.JButton();
         rentButton = new javax.swing.JButton();
+        dashBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -99,6 +100,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
 
         returnInternalFrame.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 390));
 
+        returnedButton.setBackground(new java.awt.Color(51, 51, 51));
+        returnedButton.setForeground(new java.awt.Color(255, 255, 255));
         returnedButton.setText("Returned");
         returnedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,31 +116,51 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         rentInternalFrame.setVisible(true);
         rentInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cutomerNameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerNameLabel.setText("Name");
         rentInternalFrame.getContentPane().add(cutomerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
+        billingDetailsLabel.setBackground(new java.awt.Color(51, 51, 51));
         billingDetailsLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        billingDetailsLabel.setForeground(new java.awt.Color(255, 255, 255));
         billingDetailsLabel.setText("Billing Details");
         rentInternalFrame.getContentPane().add(billingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 240, 40));
 
+        cutomerPhoneNumLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerPhoneNumLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerPhoneNumLabel.setText("Phone Number");
         rentInternalFrame.getContentPane().add(cutomerPhoneNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
+        cutomerAddressLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerAddressLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerAddressLabel.setText("Address");
         rentInternalFrame.getContentPane().add(cutomerAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
+        rentCustomerNameTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerNameTF.setForeground(new java.awt.Color(255, 255, 255));
         rentCustomerNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rentCustomerNameTFActionPerformed(evt);
             }
         });
         rentInternalFrame.getContentPane().add(rentCustomerNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, -1));
+
+        rentCustomerPhoneNumberTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerPhoneNumberTF.setForeground(new java.awt.Color(255, 255, 255));
         rentInternalFrame.getContentPane().add(rentCustomerPhoneNumberTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 180, -1));
+
+        rentCustomerAddressTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerAddressTF.setForeground(new java.awt.Color(255, 255, 255));
         rentInternalFrame.getContentPane().add(rentCustomerAddressTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 180, -1));
 
+        cutomerDaysLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerDaysLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerDaysLabel.setText("Num Days");
         rentInternalFrame.getContentPane().add(cutomerDaysLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
+        rentCustomerDaysTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerDaysTF.setForeground(new java.awt.Color(255, 255, 255));
         rentCustomerDaysTF.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 rentCustomerDaysTFFocusLost(evt);
@@ -190,9 +213,13 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
 
         rentInternalFrame.getContentPane().add(rentSelectVehicleTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 640, 200));
 
+        cutomerFIlerLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerFIlerLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerFIlerLabel.setText("Filter By Max Seats ");
         rentInternalFrame.getContentPane().add(cutomerFIlerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
+        rentCustomerMaxSeatsTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerMaxSeatsTF.setForeground(new java.awt.Color(255, 255, 255));
         rentCustomerMaxSeatsTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rentCustomerMaxSeatsTFActionPerformed(evt);
@@ -200,13 +227,19 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         });
         rentInternalFrame.getContentPane().add(rentCustomerMaxSeatsTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, -1));
 
+        cutomerVehicleSelectedLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerVehicleSelectedLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerVehicleSelectedLabel.setText("Vehicle Selected");
         rentInternalFrame.getContentPane().add(cutomerVehicleSelectedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
 
+        rentSelectedVehilceNumber.setBackground(new java.awt.Color(51, 51, 51));
         rentSelectedVehilceNumber.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        rentSelectedVehilceNumber.setForeground(new java.awt.Color(255, 255, 255));
         rentSelectedVehilceNumber.setText("NONE");
         rentInternalFrame.getContentPane().add(rentSelectedVehilceNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
 
+        billButton.setBackground(new java.awt.Color(51, 51, 51));
+        billButton.setForeground(new java.awt.Color(255, 255, 255));
         billButton.setText("BILL");
         billButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,14 +248,26 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         });
         rentInternalFrame.getContentPane().add(billButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
 
+        cutomerAmountLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerAmountLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerAmountLabel.setText("Amount");
         rentInternalFrame.getContentPane().add(cutomerAmountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+
+        rentCustomerAmountTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerAmountTF.setForeground(new java.awt.Color(255, 255, 255));
         rentInternalFrame.getContentPane().add(rentCustomerAmountTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 70, -1));
 
+        cutomerRentedOnLabel.setBackground(new java.awt.Color(51, 51, 51));
+        cutomerRentedOnLabel.setForeground(new java.awt.Color(255, 255, 255));
         cutomerRentedOnLabel.setText("Rented On");
         rentInternalFrame.getContentPane().add(cutomerRentedOnLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
+
+        rentCustomerRentedOnTF.setBackground(new java.awt.Color(51, 51, 51));
+        rentCustomerRentedOnTF.setForeground(new java.awt.Color(255, 255, 255));
         rentInternalFrame.getContentPane().add(rentCustomerRentedOnTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 180, -1));
 
+        rentFilterButton.setBackground(new java.awt.Color(51, 51, 51));
+        rentFilterButton.setForeground(new java.awt.Color(255, 255, 255));
         rentFilterButton.setText("Filter");
         rentFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,6 +275,9 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
             }
         });
         rentInternalFrame.getContentPane().add(rentFilterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
+
+        dialogeLabel.setBackground(new java.awt.Color(51, 51, 51));
+        dialogeLabel.setForeground(new java.awt.Color(255, 255, 255));
         rentInternalFrame.getContentPane().add(dialogeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 110, 20));
 
         tabbedPane.addTab("Rent", rentInternalFrame);
@@ -240,7 +288,9 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         optionPanel.setPreferredSize(new java.awt.Dimension(150, 450));
         optionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        goBackButton.setBackground(new java.awt.Color(51, 51, 51));
         goBackButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        goBackButton.setForeground(new java.awt.Color(255, 255, 255));
         goBackButton.setText("GO BACK");
         goBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,9 +300,12 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         optionPanel.add(goBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         BillingLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        BillingLabel.setForeground(new java.awt.Color(255, 255, 255));
         BillingLabel.setText("BILLING");
         optionPanel.add(BillingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
 
+        returnButton.setBackground(new java.awt.Color(51, 51, 51));
+        returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Return");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,6 +314,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 100, -1));
 
+        rentButton.setBackground(new java.awt.Color(51, 51, 51));
+        rentButton.setForeground(new java.awt.Color(255, 255, 255));
         rentButton.setText("Rent");
         rentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,6 +323,9 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
             }
         });
         optionPanel.add(rentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, -1));
+
+        dashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashBack.jpg"))); // NOI18N
+        optionPanel.add(dashBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 160, 500));
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
 
@@ -544,6 +602,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     private javax.swing.JLabel cutomerPhoneNumLabel;
     private javax.swing.JLabel cutomerRentedOnLabel;
     private javax.swing.JLabel cutomerVehicleSelectedLabel;
+    private javax.swing.JLabel dashBackground;
     private javax.swing.JLabel dialogeLabel;
     private javax.swing.JButton goBackButton;
     private javax.swing.JScrollPane jScrollPane2;

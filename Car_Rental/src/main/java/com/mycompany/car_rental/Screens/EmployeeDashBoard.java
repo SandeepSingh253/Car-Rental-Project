@@ -62,13 +62,14 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         jLabel1 = new javax.swing.JLabel();
         profileButton = new javax.swing.JButton();
         billingButton = new javax.swing.JButton();
+        dashBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profilePanel.setBackground(new java.awt.Color(255, 255, 255));
+        profilePanel.setBackground(new java.awt.Color(102, 102, 102));
         profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profileUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -76,14 +77,23 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         profileUsernameLabel.setText(currentUser.getUsername());
         profilePanel.add(profileUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 255, 32));
 
+        profileUpdateProfileLabel.setBackground(new java.awt.Color(51, 51, 51));
         profileUpdateProfileLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        profileUpdateProfileLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileUpdateProfileLabel.setText("Update Profile");
         profilePanel.add(profileUpdateProfileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
+        profileEnterPasswordLabel.setBackground(new java.awt.Color(51, 51, 51));
+        profileEnterPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileEnterPasswordLabel.setText("Enter Password");
         profilePanel.add(profileEnterPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        profileEnterPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        profileEnterPasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.add(profileEnterPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 200, -1));
 
+        profileupdateProfileButton.setBackground(new java.awt.Color(51, 51, 51));
+        profileupdateProfileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileupdateProfileButton.setText("UPDATE");
         profileupdateProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,16 +102,28 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         });
         profilePanel.add(profileupdateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, -1, -1));
 
+        profileCurrentUserLabel.setBackground(new java.awt.Color(51, 51, 51));
         profileCurrentUserLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        profileCurrentUserLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileCurrentUserLabel.setText("Current User");
         profilePanel.add(profileCurrentUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
+        profileNewUsernameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewUsernameLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileNewUsernameLabel.setText("New Username");
         profilePanel.add(profileNewUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
+        profileNewPasswordLabel.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileNewPasswordLabel.setText("New Password");
         profilePanel.add(profileNewPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+
+        profileNewUsernameTF.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewUsernameTF.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.add(profileNewUsernameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 200, -1));
+
+        profileNewPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        profileNewPasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.add(profileNewPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 200, -1));
 
         tabbedPane.addTab("Admins", profilePanel);
@@ -110,6 +132,9 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         vehiclesInternalFrame.setVisible(true);
         vehiclesInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        vehicleTableScrollPane.setForeground(new java.awt.Color(102, 102, 102));
+
+        vehiclesTable.setBackground(new java.awt.Color(102, 102, 102));
         vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -130,6 +155,8 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         optionPanel.setPreferredSize(new java.awt.Dimension(150, 450));
         optionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        vehicleButton.setBackground(new java.awt.Color(51, 51, 51));
+        vehicleButton.setForeground(new java.awt.Color(255, 255, 255));
         vehicleButton.setText("Vehicles");
         vehicleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +165,9 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(vehicleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, -1));
 
+        logOutButton.setBackground(new java.awt.Color(51, 51, 51));
         logOutButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        logOutButton.setForeground(new java.awt.Color(255, 255, 255));
         logOutButton.setText("LOG OUT");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,9 +177,12 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         optionPanel.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EMPLOYEE");
         optionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 40));
 
+        profileButton.setBackground(new java.awt.Color(51, 51, 51));
+        profileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileButton.setText("PROFILE");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +191,8 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 80, -1));
 
+        billingButton.setBackground(new java.awt.Color(51, 51, 51));
+        billingButton.setForeground(new java.awt.Color(255, 255, 255));
         billingButton.setText("Billing");
         billingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +200,9 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
             }
         });
         optionPanel.add(billingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 100, -1));
+
+        dashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashBack.jpg"))); // NOI18N
+        optionPanel.add(dashBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 160, 500));
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
@@ -306,6 +343,7 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton billingButton;
+    private javax.swing.JLabel dashBackground;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JPanel optionPanel;

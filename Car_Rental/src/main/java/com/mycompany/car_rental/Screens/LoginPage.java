@@ -69,17 +69,24 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         LogInBackGroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginLabel.setFont(new java.awt.Font("Agency FB", 3, 36)); // NOI18N
+        loginLabel.setForeground(new java.awt.Color(0, 0, 0));
         loginLabel.setText("LogIn");
         LogInBackGroundPanel.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 70, 50));
 
+        usernameLabel.setBackground(new java.awt.Color(255, 255, 255));
         usernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
         usernameLabel.setText("User Name");
         LogInBackGroundPanel.add(usernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
+        passwordLabel.setBackground(new java.awt.Color(255, 255, 255));
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
         passwordLabel.setText("Password");
         LogInBackGroundPanel.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
+        logInUserNameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        logInUserNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         logInUserNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logInUserNameTextFieldActionPerformed(evt);
@@ -87,6 +94,8 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         });
         LogInBackGroundPanel.add(logInUserNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 200, -1));
 
+        logInPasswordField.setBackground(new java.awt.Color(255, 255, 255));
+        logInPasswordField.setForeground(new java.awt.Color(0, 0, 0));
         logInPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logInPasswordFieldActionPerformed(evt);
@@ -95,6 +104,7 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         LogInBackGroundPanel.add(logInPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 200, -1));
 
         signUpLabel.setBackground(new java.awt.Color(255, 255, 255));
+        signUpLabel.setForeground(new java.awt.Color(0, 0, 0));
         signUpLabel.setText("to sign up as admin.");
         LogInBackGroundPanel.add(signUpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, -1, -1));
 
@@ -108,7 +118,9 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         });
         LogInBackGroundPanel.add(clickHereLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
+        logInButton.setBackground(new java.awt.Color(255, 255, 255));
         logInButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        logInButton.setForeground(new java.awt.Color(0, 0, 0));
         logInButton.setText("LogIn");
         logInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +147,9 @@ public class LoginPage extends javax.swing.JFrame implements Values{
         emptyUsernameLabel.setText("Username Empty!");
         LogInBackGroundPanel.add(emptyUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 190, -1));
 
+        closeButton.setBackground(new java.awt.Color(255, 255, 255));
         closeButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(0, 0, 0));
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,43 +274,7 @@ public class LoginPage extends javax.swing.JFrame implements Values{
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginPage().setVisible(true);
-            }
-        });
-    }
+    } 
     
     private int numOfAdmin() {
         int count=0;

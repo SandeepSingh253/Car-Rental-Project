@@ -58,28 +58,35 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         adminSignUpLabel.setBackground(new java.awt.Color(255, 255, 255));
         adminSignUpLabel.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        adminSignUpLabel.setForeground(new java.awt.Color(0, 0, 0));
         adminSignUpLabel.setText("Admin SignUp");
         jPanel1.add(adminSignUpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 
         userNameLabel.setBackground(new java.awt.Color(255, 255, 255));
         userNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        userNameLabel.setForeground(new java.awt.Color(0, 0, 0));
         userNameLabel.setText("User Name");
         jPanel1.add(userNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         passwordLabel.setBackground(new java.awt.Color(255, 255, 255));
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
         passwordLabel.setText("Password");
         jPanel1.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         reEnterPasswordLabel.setBackground(new java.awt.Color(255, 255, 255));
         reEnterPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        reEnterPasswordLabel.setForeground(new java.awt.Color(0, 0, 0));
         reEnterPasswordLabel.setText("Re-Enter Password");
         jPanel1.add(reEnterPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 30));
 
+        usernameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        usernameTextField.setForeground(new java.awt.Color(0, 0, 0));
         usernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTextFieldActionPerformed(evt);
@@ -87,6 +94,8 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
         });
         jPanel1.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 200, -1));
 
+        passwordField.setBackground(new java.awt.Color(255, 255, 255));
+        passwordField.setForeground(new java.awt.Color(0, 0, 0));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
@@ -94,6 +103,8 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
         });
         jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 200, -1));
 
+        reEnterPasswordField.setBackground(new java.awt.Color(255, 255, 255));
+        reEnterPasswordField.setForeground(new java.awt.Color(0, 0, 0));
         reEnterPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reEnterPasswordFieldActionPerformed(evt);
@@ -101,7 +112,9 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
         });
         jPanel1.add(reEnterPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 200, -1));
 
+        signUpButton.setBackground(new java.awt.Color(255, 255, 255));
         signUpButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        signUpButton.setForeground(new java.awt.Color(0, 0, 0));
         signUpButton.setText("SignUp");
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +123,9 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
         });
         jPanel1.add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
+        backToLoginButton.setBackground(new java.awt.Color(255, 255, 255));
         backToLoginButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        backToLoginButton.setForeground(new java.awt.Color(0, 0, 0));
         backToLoginButton.setText("Back To Login");
         backToLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +159,8 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 460, 450));
 
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setForeground(new java.awt.Color(0, 0, 0));
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginBackGround.png"))); // NOI18N
         background.setMaximumSize(new java.awt.Dimension(800, 450));
         background.setMinimumSize(new java.awt.Dimension(800, 450));
@@ -233,44 +250,6 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
             }
         }
     }//GEN-LAST:event_signUpButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminSignUp().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adminSignUpLabel;

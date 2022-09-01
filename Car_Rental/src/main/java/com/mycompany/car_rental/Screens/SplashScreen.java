@@ -30,8 +30,8 @@ public class SplashScreen extends javax.swing.JFrame {
         percentageLabel = new javax.swing.JLabel();
         splashLoading = new javax.swing.JProgressBar();
         loadingTextLabel = new javax.swing.JLabel();
-        splashIcon = new javax.swing.JLabel();
         walkingAnimation = new javax.swing.JLabel();
+        splashIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -51,22 +51,25 @@ public class SplashScreen extends javax.swing.JFrame {
 
         percentageLabel.setBackground(new java.awt.Color(204, 204, 204));
         percentageLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        percentageLabel.setForeground(new java.awt.Color(102, 102, 102));
         percentageLabel.setText("0%");
         splashPanel.add(percentageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, 50, 20));
 
-        splashLoading.setForeground(new java.awt.Color(0, 102, 204));
+        splashLoading.setBackground(new java.awt.Color(255, 255, 255));
+        splashLoading.setForeground(new java.awt.Color(51, 153, 255));
         splashLoading.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         splashPanel.add(splashLoading, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 800, 20));
 
+        loadingTextLabel.setBackground(new java.awt.Color(255, 255, 255));
         loadingTextLabel.setForeground(new java.awt.Color(102, 102, 102));
         loadingTextLabel.setText("Loading....");
         splashPanel.add(loadingTextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
+        walkingAnimation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loading.gif"))); // NOI18N
+        splashPanel.add(walkingAnimation, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 336, -1, 160));
+
         splashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CarRentalIcon.png"))); // NOI18N
         splashPanel.add(splashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 600, 370));
-
-        walkingAnimation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tile000.png"))); // NOI18N
-        splashPanel.add(walkingAnimation, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 390, -1, 50));
 
         getContentPane().add(splashPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
 
@@ -116,7 +119,6 @@ public class SplashScreen extends javax.swing.JFrame {
                 Thread.sleep(35);
                 screen.splashLoading.setValue(i);
                 screen.percentageLabel.setText(""+i+"%");
-                setAnimationIcon(i);
                 if(i==60){
                     screen.loadingTextLabel.setText("Almost Done!!");
                 }else if(i==80){
@@ -130,34 +132,6 @@ public class SplashScreen extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
         screen.dispose();
         
-    }
-
-    
-    private static void setAnimationIcon(int i) {
-        if(i%16==1){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile000.png")));
-        }
-        if(i%16==3){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile001.png")));
-        }
-        if(i%16==5){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile002.png")));
-        }
-        if(i%16==6){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile003.png")));
-        }
-        if(i%16==9){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile004.png")));
-        }
-        if(i%16==11){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile005.png")));
-        }
-        if(i%16==13){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile006.png")));
-        }
-        if(i%16==15){
-            screen.walkingAnimation.setIcon(new javax.swing.ImageIcon(screen.getClass().getResource("/images/tile007.png")));
-        }
     }
     
     private static SplashScreen screen=new SplashScreen();

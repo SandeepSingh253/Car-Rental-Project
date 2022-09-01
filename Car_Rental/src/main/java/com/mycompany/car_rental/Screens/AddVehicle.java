@@ -75,6 +75,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         jLabel1 = new javax.swing.JLabel();
         removeVehiclePanelButton = new javax.swing.JButton();
         updateVehiclePanelButton = new javax.swing.JButton();
+        dashBackground = new javax.swing.JLabel();
         vehicleTabelScrollPane = new javax.swing.JScrollPane();
         vehiclesTable = new javax.swing.JTable();
 
@@ -83,17 +84,16 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        removeVehiclesPanel.setBackground(new java.awt.Color(255, 255, 255));
         removeVehiclesPanel.setForeground(new java.awt.Color(0, 0, 0));
         removeVehiclesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateVOldNumberLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        updateVOldNumberLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        updateVOldNumberLabel1.setForeground(new java.awt.Color(255, 255, 255));
         updateVOldNumberLabel1.setText("Number");
         removeVehiclesPanel.add(updateVOldNumberLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 139, -1, -1));
 
-        removeVNumberTF.setBackground(new java.awt.Color(255, 255, 255));
-        removeVNumberTF.setForeground(new java.awt.Color(0, 0, 0));
+        removeVNumberTF.setBackground(new java.awt.Color(51, 51, 51));
+        removeVNumberTF.setForeground(new java.awt.Color(255, 255, 255));
         removeVNumberTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeVNumberTFActionPerformed(evt);
@@ -101,8 +101,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         });
         removeVehiclesPanel.add(removeVNumberTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 136, 180, -1));
 
-        removeButton.setBackground(new java.awt.Color(255, 255, 255));
-        removeButton.setForeground(new java.awt.Color(0, 0, 0));
+        removeButton.setBackground(new java.awt.Color(51, 51, 51));
+        removeButton.setForeground(new java.awt.Color(255, 255, 255));
         removeButton.setText("REMOVE");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,28 +113,30 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("RV", removeVehiclesPanel);
 
-        updateVehiclesPanel.setBackground(new java.awt.Color(255, 255, 255));
         updateVehiclesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        updateVModelLabel.setForeground(new java.awt.Color(0, 0, 0));
+        updateVModelLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateVModelLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateVModelLabel.setText("Model");
         updateVehiclesPanel.add(updateVModelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 162, -1, -1));
 
-        updateVNumberLabel.setForeground(new java.awt.Color(0, 0, 0));
+        updateVNumberLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateVNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateVNumberLabel.setText("New Number");
         updateVehiclesPanel.add(updateVNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 159, -1, -1));
 
-        updateVMaxCapacityLabel.setForeground(new java.awt.Color(0, 0, 0));
+        updateVMaxCapacityLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateVMaxCapacityLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateVMaxCapacityLabel.setText("Max Capacity");
         updateVehiclesPanel.add(updateVMaxCapacityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 212, -1, -1));
 
-        updateVrentPDLabel.setBackground(new java.awt.Color(255, 255, 255));
-        updateVrentPDLabel.setForeground(new java.awt.Color(0, 0, 0));
+        updateVrentPDLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateVrentPDLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateVrentPDLabel.setText("Rent Per Day");
         updateVehiclesPanel.add(updateVrentPDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 111, -1, -1));
 
-        updateButton.setBackground(new java.awt.Color(255, 255, 255));
-        updateButton.setForeground(new java.awt.Color(0, 0, 0));
+        updateButton.setBackground(new java.awt.Color(51, 51, 51));
+        updateButton.setForeground(new java.awt.Color(255, 255, 255));
         updateButton.setText("UPDATE");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,29 +145,29 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         });
         updateVehiclesPanel.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 209, -1, -1));
 
-        updateVModelTF.setBackground(new java.awt.Color(255, 255, 255));
-        updateVModelTF.setForeground(new java.awt.Color(0, 0, 0));
+        updateVModelTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateVModelTF.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclesPanel.add(updateVModelTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 159, 180, -1));
 
-        updateVNewNumberTF.setBackground(new java.awt.Color(255, 255, 255));
-        updateVNewNumberTF.setForeground(new java.awt.Color(0, 0, 0));
+        updateVNewNumberTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateVNewNumberTF.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclesPanel.add(updateVNewNumberTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 159, 180, -1));
 
-        updateVMaxCapacityTF.setBackground(new java.awt.Color(255, 255, 255));
-        updateVMaxCapacityTF.setForeground(new java.awt.Color(0, 0, 0));
+        updateVMaxCapacityTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateVMaxCapacityTF.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclesPanel.add(updateVMaxCapacityTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 209, 180, -1));
 
-        updateVrentPDTF.setBackground(new java.awt.Color(255, 255, 255));
-        updateVrentPDTF.setForeground(new java.awt.Color(0, 0, 0));
+        updateVrentPDTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateVrentPDTF.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclesPanel.add(updateVrentPDTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 105, 180, -1));
 
-        updateVOldNumberLabel.setBackground(new java.awt.Color(255, 255, 255));
-        updateVOldNumberLabel.setForeground(new java.awt.Color(0, 0, 0));
+        updateVOldNumberLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateVOldNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateVOldNumberLabel.setText("Number");
         updateVehiclesPanel.add(updateVOldNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 111, -1, -1));
 
-        updateVOldNumberTF.setBackground(new java.awt.Color(255, 255, 255));
-        updateVOldNumberTF.setForeground(new java.awt.Color(0, 0, 0));
+        updateVOldNumberTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateVOldNumberTF.setForeground(new java.awt.Color(255, 255, 255));
         updateVOldNumberTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateVOldNumberTFActionPerformed(evt);
@@ -175,28 +177,30 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("UV", updateVehiclesPanel);
 
-        addVehiclesPanel.setBackground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        addVModelLabel.setForeground(new java.awt.Color(0, 0, 0));
+        addVModelLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addVModelLabel.setForeground(new java.awt.Color(255, 255, 255));
         addVModelLabel.setText("Model");
         addVehiclesPanel.add(addVModelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 105, -1, -1));
 
-        addVNumberLabel.setForeground(new java.awt.Color(0, 0, 0));
+        addVNumberLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addVNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         addVNumberLabel.setText("Number");
         addVehiclesPanel.add(addVNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 156, -1, -1));
 
-        addVMaxCapacityLabel.setForeground(new java.awt.Color(0, 0, 0));
+        addVMaxCapacityLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addVMaxCapacityLabel.setForeground(new java.awt.Color(255, 255, 255));
         addVMaxCapacityLabel.setText("Max Capacity");
         addVehiclesPanel.add(addVMaxCapacityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 209, -1, -1));
 
-        addVrentPDLabel.setBackground(new java.awt.Color(255, 255, 255));
-        addVrentPDLabel.setForeground(new java.awt.Color(0, 0, 0));
+        addVrentPDLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addVrentPDLabel.setForeground(new java.awt.Color(255, 255, 255));
         addVrentPDLabel.setText("Rent Per Day");
         addVehiclesPanel.add(addVrentPDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 108, -1, -1));
 
-        addButton.setBackground(new java.awt.Color(255, 255, 255));
-        addButton.setForeground(new java.awt.Color(0, 0, 0));
+        addButton.setBackground(new java.awt.Color(51, 51, 51));
+        addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("ADD");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,20 +209,20 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         });
         addVehiclesPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 206, -1, -1));
 
-        addVModelTF.setBackground(new java.awt.Color(255, 255, 255));
-        addVModelTF.setForeground(new java.awt.Color(0, 0, 0));
+        addVModelTF.setBackground(new java.awt.Color(51, 51, 51));
+        addVModelTF.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.add(addVModelTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 105, 180, -1));
 
-        addVNumberTF.setBackground(new java.awt.Color(255, 255, 255));
-        addVNumberTF.setForeground(new java.awt.Color(0, 0, 0));
+        addVNumberTF.setBackground(new java.awt.Color(51, 51, 51));
+        addVNumberTF.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.add(addVNumberTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 156, 180, -1));
 
-        addVMaxCapacityTF.setBackground(new java.awt.Color(255, 255, 255));
-        addVMaxCapacityTF.setForeground(new java.awt.Color(0, 0, 0));
+        addVMaxCapacityTF.setBackground(new java.awt.Color(51, 51, 51));
+        addVMaxCapacityTF.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.add(addVMaxCapacityTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 206, 180, -1));
 
-        addVrentPDTF.setBackground(new java.awt.Color(255, 255, 255));
-        addVrentPDTF.setForeground(new java.awt.Color(0, 0, 0));
+        addVrentPDTF.setBackground(new java.awt.Color(51, 51, 51));
+        addVrentPDTF.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.add(addVrentPDTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 105, 180, -1));
 
         tabbedPane.addTab("AV", addVehiclesPanel);
@@ -229,6 +233,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         optionPanel.setPreferredSize(new java.awt.Dimension(150, 450));
         optionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addVehiclePanelButton.setBackground(new java.awt.Color(51, 51, 51));
+        addVehiclePanelButton.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclePanelButton.setText("Add Vehicle");
         addVehiclePanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +243,9 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(addVehiclePanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 120, 22));
 
+        goBackButton.setBackground(new java.awt.Color(51, 51, 51));
         goBackButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        goBackButton.setForeground(new java.awt.Color(255, 255, 255));
         goBackButton.setText("GO BACK");
         goBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,10 +254,14 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(goBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("VEHICLES");
         optionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 40));
 
+        removeVehiclePanelButton.setBackground(new java.awt.Color(51, 51, 51));
+        removeVehiclePanelButton.setForeground(new java.awt.Color(255, 255, 255));
         removeVehiclePanelButton.setText("Remove Vehicle");
         removeVehiclePanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,6 +270,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(removeVehiclePanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, 22));
 
+        updateVehiclePanelButton.setBackground(new java.awt.Color(51, 51, 51));
+        updateVehiclePanelButton.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclePanelButton.setText("Update Vehicle");
         updateVehiclePanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +279,9 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
             }
         });
         optionPanel.add(updateVehiclePanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 120, 22));
+
+        dashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashBack.jpg"))); // NOI18N
+        optionPanel.add(dashBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 160, 500));
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
@@ -550,6 +567,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
     private javax.swing.JPanel addVehiclesPanel;
     private javax.swing.JLabel addVrentPDLabel;
     private javax.swing.JTextField addVrentPDTF;
+    private javax.swing.JLabel dashBackground;
     private javax.swing.JButton goBackButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel optionPanel;

@@ -73,6 +73,7 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         updateEmployeeAccessButton = new javax.swing.JButton();
         aRUEmployeeLabel = new javax.swing.JLabel();
         goBackButton = new javax.swing.JButton();
+        dashBackground = new javax.swing.JLabel();
         employeeTableScrollPane = new javax.swing.JScrollPane();
         employeeTable = new javax.swing.JTable();
 
@@ -86,14 +87,26 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
         addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addEUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addEUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         addEUnameLabel.setText("Username");
         addEmployeePanel.add(addEUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
+        addEPassLabel.setBackground(new java.awt.Color(51, 51, 51));
+        addEPassLabel.setForeground(new java.awt.Color(255, 255, 255));
         addEPassLabel.setText("Password");
         addEmployeePanel.add(addEPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        addEmployeeUNameTF.setBackground(new java.awt.Color(51, 51, 51));
+        addEmployeeUNameTF.setForeground(new java.awt.Color(255, 255, 255));
         addEmployeePanel.add(addEmployeeUNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 200, -1));
+
+        addEmployeePasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        addEmployeePasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         addEmployeePanel.add(addEmployeePasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, -1));
 
+        addEmployeeButton.setBackground(new java.awt.Color(51, 51, 51));
+        addEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
         addEmployeeButton.setText("ADD");
         addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,10 +130,17 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
         removeEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        removeEUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        removeEUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         removeEUnameLabel.setText("Username");
         removeEmployeePanel.add(removeEUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        removeEmployeeUNameTF.setBackground(new java.awt.Color(51, 51, 51));
+        removeEmployeeUNameTF.setForeground(new java.awt.Color(255, 255, 255));
         removeEmployeePanel.add(removeEmployeeUNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 200, -1));
 
+        removeEmployeeButton.setBackground(new java.awt.Color(51, 51, 51));
+        removeEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
         removeEmployeeButton.setText("REMOVE");
         removeEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,14 +153,26 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
         updateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        updateEmployeeUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeeUnameLabel.setText("Username");
         updateEmployeePanel.add(updateEmployeeUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
+        updateEmployeeNewPasswordLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeNewPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeeNewPasswordLabel.setText("New Password");
         updateEmployeePanel.add(updateEmployeeNewPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        updateEmployeeUnameTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeUnameTF.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeePanel.add(updateEmployeeUnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 190, -1));
+
+        updateEmployeeNewPasswordTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeNewPasswordTF.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeePanel.add(updateEmployeeNewPasswordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 190, -1));
 
+        updateEmployeeUpdateButton.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeeUpdateButton.setText("UPDATE");
         updateEmployeeUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +180,13 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
             }
         });
         updateEmployeePanel.add(updateEmployeeUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
+
+        updateEmployeeNewUnameTF.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeNewUnameTF.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeePanel.add(updateEmployeeNewUnameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, -1));
 
+        updateEmployeeNewUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeNewUnameLabel.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeeNewUnameLabel.setText("New Username");
         updateEmployeePanel.add(updateEmployeeNewUnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 20));
 
@@ -160,6 +197,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         addRemoveUpdateEmployeeButtonPanel.setBackground(new java.awt.Color(153, 153, 153));
         addRemoveUpdateEmployeeButtonPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addEmployeeAccessButton.setBackground(new java.awt.Color(51, 51, 51));
+        addEmployeeAccessButton.setForeground(new java.awt.Color(255, 255, 255));
         addEmployeeAccessButton.setText("Add Employee");
         addEmployeeAccessButton.setPreferredSize(new java.awt.Dimension(123, 22));
         addEmployeeAccessButton.setVerifyInputWhenFocusTarget(false);
@@ -170,6 +209,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         });
         addRemoveUpdateEmployeeButtonPanel.add(addEmployeeAccessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 130, 22));
 
+        removeEmployeeAccessButton.setBackground(new java.awt.Color(51, 51, 51));
+        removeEmployeeAccessButton.setForeground(new java.awt.Color(255, 255, 255));
         removeEmployeeAccessButton.setText("Remove Employee");
         removeEmployeeAccessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +219,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         });
         addRemoveUpdateEmployeeButtonPanel.add(removeEmployeeAccessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 130, 22));
 
+        updateEmployeeAccessButton.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeeAccessButton.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeeAccessButton.setText("Update Employee");
         updateEmployeeAccessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,11 +229,15 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         });
         addRemoveUpdateEmployeeButtonPanel.add(updateEmployeeAccessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 130, 22));
 
+        aRUEmployeeLabel.setBackground(new java.awt.Color(51, 51, 51));
         aRUEmployeeLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        aRUEmployeeLabel.setForeground(new java.awt.Color(255, 255, 255));
         aRUEmployeeLabel.setText("CRUD EMPLOYEE");
         addRemoveUpdateEmployeeButtonPanel.add(aRUEmployeeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 40));
 
+        goBackButton.setBackground(new java.awt.Color(51, 51, 51));
         goBackButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        goBackButton.setForeground(new java.awt.Color(255, 255, 255));
         goBackButton.setText("GO BACK");
         goBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +245,9 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
             }
         });
         addRemoveUpdateEmployeeButtonPanel.add(goBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
+
+        dashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashBack.jpg"))); // NOI18N
+        addRemoveUpdateEmployeeButtonPanel.add(dashBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 180, 500));
 
         getContentPane().add(addRemoveUpdateEmployeeButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 450));
 
@@ -489,6 +539,7 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
     private javax.swing.JTextField addEmployeeUNameTF;
     private javax.swing.JPanel addRemoveUpdateEmployeeButtonPanel;
     private javax.swing.JTabbedPane addRemoveUpdateTabbedPanel;
+    private javax.swing.JLabel dashBackground;
     private javax.swing.JTable employeeTable;
     private javax.swing.JScrollPane employeeTableScrollPane;
     private javax.swing.JButton goBackButton;
