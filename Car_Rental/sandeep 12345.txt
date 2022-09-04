@@ -1,0 +1,12 @@
+                       CarRental                        
+date: 1/2/3
+______________________________________________________
+custmer details: 
+
+Name= sandeep
+Phone Number= 12345
+Address= qwe
+Vehical Rented= 1233
+Return Date= 5
+
+Amount Paid= 20

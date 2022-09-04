@@ -1,0 +1,12 @@
+                       CarRental                        
+date: 1/2/7
+______________________________________________________
+custmer details: 
+
+Name= dfghj
+Phone Number= 65
+Address= qwert
+Vehical Rented= 1234
+Return Date= 6
+
+Amount Paid= 30

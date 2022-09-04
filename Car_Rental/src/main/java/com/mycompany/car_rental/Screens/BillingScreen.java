@@ -395,12 +395,26 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
             return;
         }
         
-        int answer=addCustomer();
+        CustomerModel customer=new CustomerModel();
+        
+        customer.setName(rentCustomerNameTF.getText());
+        customer.setPhoneNumber(rentCustomerPhoneNumberTF.getText());
+        customer.setAddress(rentCustomerAddressTF.getText());
+        customer.setRentAmount(Integer.parseInt(rentCustomerAmountTF.getText()));
+        customer.setRentedForDays(rentCustomerDaysTF.getText());
+        customer.setRentedOn( rentCustomerRentedOnTF.getText());
+        customer.setVehicleRented(selectedVehicle.getNumber());
+        
+        int answer=addCustomer(customer);
         switch (answer) {
             case NUMBER_ALREAD_IN_USE:
                 return;
             case CUSTOMER_ADDED:
                 dialogeLabel.setText("customer added");
+                updateRentedValue(selectedVehicle.getNumber(),IS_RENTED);
+                updateAvailableVehiclesTable(1);
+                rentCustomerMaxSeatsTF.setText("");
+                new ReceiptScreen(customer).setVisible(true);
                 return;
             case CUSTOMER_NOT_ADDED:
                 break;
@@ -410,7 +424,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_billButtonActionPerformed
 
     private void returnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnedButtonActionPerformed
-       DefaultTableModel dtm = (DefaultTableModel) onRentVehiclesTable.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) onRentVehiclesTable.getModel();
         int selectedRow = onRentVehiclesTable.getSelectedRow();
         String vehicleNumber= (String) dtm.getValueAt(selectedRow, 2);
         
@@ -555,8 +569,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         
     }
     
-    private int addCustomer() {
-        String phoneNumber=rentCustomerPhoneNumberTF.getText();
+    private int addCustomer(CustomerModel customer) {
+        String phoneNumber=customer.getPhoneNumber();
         
         final String searchStatement = "SELECT * from customers where phone_number=?";
         try {
@@ -571,13 +585,13 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                 
                 final String insertStatement = "INSERT INTO customers(name, address, phone_number, rented_on_date, rented_for_days, vehicle_rented, amount_paid) values(?,?,?,?,?,?,?)";
                 PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(insertStatement);
-                preparedStatement.setString(1, rentCustomerNameTF.getText());
-                preparedStatement.setString(2, rentCustomerAddressTF.getText());
-                preparedStatement.setString(3, rentCustomerPhoneNumberTF.getText());
-                preparedStatement.setString(4, rentCustomerRentedOnTF.getText());
-                preparedStatement.setString(5, rentCustomerDaysTF.getText());
-                preparedStatement.setString(6, selectedVehicle.getNumber());
-                preparedStatement.setString(7, rentCustomerAmountTF.getText());
+                preparedStatement.setString(1, customer.getName());
+                preparedStatement.setString(2, customer.getAddress());
+                preparedStatement.setString(3, customer.getPhoneNumber());
+                preparedStatement.setString(4, customer.getRentedOn());
+                preparedStatement.setString(5, customer.getRentedForDays());
+                preparedStatement.setString(6, customer.getVehicleRented());
+                preparedStatement.setString(7, Integer.toString(customer.getRentAmount()));
 
                 final int isAdded = preparedStatement.executeUpdate();
 
@@ -589,7 +603,6 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
             }
         return CUSTOMER_NOT_ADDED;
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BillingLabel;
     private javax.swing.JButton billButton;

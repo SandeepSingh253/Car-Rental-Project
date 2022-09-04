@@ -18,8 +18,13 @@ public class CustomerModel {
     private String vehicleRented;
     private int rentAmount;
     
+    
     public CustomerModel(int id){
         this.id=id;
+    }
+    
+    public CustomerModel(){
+        id=-1;
     }
     
     public String getName() {

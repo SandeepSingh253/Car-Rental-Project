@@ -56,7 +56,7 @@ public class SplashScreen extends javax.swing.JFrame {
         splashPanel.add(percentageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, 50, 20));
 
         splashLoading.setBackground(new java.awt.Color(255, 255, 255));
-        splashLoading.setForeground(new java.awt.Color(51, 153, 255));
+        splashLoading.setForeground(new java.awt.Color(17, 58, 182));
         splashLoading.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         splashPanel.add(splashLoading, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 800, 20));
 
