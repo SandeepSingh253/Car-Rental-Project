@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import models.UserModel;
+import models.*;
 
 /**
  *
@@ -276,6 +276,8 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_vehicleButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        LogModel userLog=new LogModel(currentUser);
+        userLog.uploadLog("Logged Out");
         dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_logOutButtonActionPerformed
@@ -323,6 +325,8 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
                 JOptionPane.showMessageDialog(null, "Username already used");
                 break;
             case UPDATE_SUCCESSFUL:
+                LogModel userLog=new LogModel(currentUser);
+                userLog.uploadLog("Updated Profile new Username "+newUsername);
                 currentUser.setUsername(newUsername);
                 currentUser.setPassword(newPassword);
                 JOptionPane.showMessageDialog(null, "Value Updated");

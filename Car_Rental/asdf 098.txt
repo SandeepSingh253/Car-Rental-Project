@@ -1,0 +1,12 @@
+                       CarRental                        
+date: 1/2/3
+______________________________________________________
+custmer details: 
+
+Name= asdf
+Phone Number= 098
+Address= hjkl;nnhgv
+Vehical Rented= 1233
+Return Date= 5
+
+Amount Paid= 20

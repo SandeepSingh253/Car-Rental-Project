@@ -6,14 +6,13 @@ package com.mycompany.car_rental.Screens;
 
 import constants.Values;
 import com.mycompany.car_rental.ConnectionClass.ConnectionClass;
-import static constants.Values.MANAGER_ROLE;
 import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.UserModel;
+import models.*;
 //import javax.swing.JOptionPane;
 
 /**
@@ -215,19 +214,19 @@ public class LoginPage extends javax.swing.JFrame implements Values{
             switch (loginUser.getRole()) {
                 case ADMIN_ROLE:
                     new AdminDashBoard(loginUser).setVisible(true);
-                    dispose();
                     break;
                 case MANAGER_ROLE:
                     new ManagerDashBoard(loginUser).setVisible(true);
-                    dispose();
                     break;
                 case EMPLOYEE_ROLE:
-                    new EmployeeDashBoard(loginUser).setVisible(true);
-                    dispose();
+                    new EmployeeDashBoard(loginUser).setVisible(true); 
                     break;
                 default:
                     break;
             }
+            LogModel userLog=new LogModel(loginUser);
+            userLog.uploadLog("Logged In");
+            dispose();
             
         }else{
             invalidUserOrPassLabel.setForeground(Color.red);

@@ -55,6 +55,15 @@ public class ConnectionClass {
                 preparedStatement = connection.prepareStatement(statement);
                 preparedStatement.execute();
                 
+                statement = "CREATE TABLE IF NOT EXISTS logs(log_id INT NOT NULL AUTO_INCREMENT, "
+                        + "user_id INT(255), "
+                        + "user_name VARCHAR(255), "
+                        + "user_role INT(255), "
+                        + "log VARCHAR(255), "
+                        + "PRIMARY KEY(log_id))";
+                preparedStatement = connection.prepareStatement(statement);
+                preparedStatement.execute();
+                
             }
 
         } catch (SQLException ex) {

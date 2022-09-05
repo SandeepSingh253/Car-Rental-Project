@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import models.UserModel;
+import models.*;
 
 /**
  *
@@ -518,6 +518,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_vehicleButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        LogModel userLog=new LogModel(currentUser);
+        userLog.uploadLog("Logged Out");
         dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_logOutButtonActionPerformed
@@ -570,10 +572,14 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
                     JOptionPane.showMessageDialog(null, "Username already used");
                     break;
                 case UPDATE_SUCCESSFUL:
+                    LogModel userLog=new LogModel(currentUser);
+                    userLog.uploadLog("Updated Profile new Username "+newUsername);
+                    
                     currentUser.setUsername(newUsername);
                     currentUser.setPassword(newPassword);
                     JOptionPane.showMessageDialog(null, "Value Updated");
                     profileUsernameLabel.setText(currentUser.getUsername());
+                    
                     updateAdminTabel();
                     break;
                 case UPDATE_UNSUCCESSFUL:
@@ -631,6 +637,10 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             managerAddmanagerDialogLabel.setForeground(Color.green);
             managerAddManagerUNameTF.setText("");
             managerAddManagerPasswordTF.setText("");
+            
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Added Manager "+username);
+            
             updateManagerTable();
             return;
         }
@@ -673,6 +683,9 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         boolean managerDeleted=deleteUser(user.getUsername());
         
         if(managerDeleted){
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Removed Manager "+username);
+            
             updateManagerTable();
             JOptionPane.showMessageDialog(null, "Manager deleted");
         }else{
@@ -695,7 +708,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         String newPassword = managerUpdateManagerNewPasswordTF.getText();
         
         if (newUsername.isBlank()) {
-            JOptionPane.showMessageDialog(null, "Enter email");
+            JOptionPane.showMessageDialog(null, "Enter username");
             return;
         }
         if (newPassword.isBlank()) {
@@ -712,6 +725,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             case USERNAME_ALREAD_IN_USE:
                 break;
             case UPDATE_SUCCESSFUL:
+                LogModel userLog=new LogModel(currentUser);
+                userLog.uploadLog("Updated Manager "+username+" to "+newUsername);
                  updateManagerTable();
                 break;
             case UPDATE_UNSUCCESSFUL:

@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import models.UserModel;
+import models.*;
 import models.VehicleModel;
 
 /**
@@ -354,7 +354,9 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
                     JOptionPane.showMessageDialog(null, "Number alredy used");
                     break;
                 case UPDATE_SUCCESSFUL:
-                     updateVehiclesTable();
+                    LogModel userLog=new LogModel(currentUser);
+                    userLog.uploadLog("Updated Vehicle "+updateVOldNumberTF.getText()+" to "+updatedVehicle.getNumber());
+                    updateVehiclesTable();
                     break;
                 case UPDATE_UNSUCCESSFUL:
                     
@@ -384,6 +386,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         
         if(managerDeleted){
             updateVehiclesTable();
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Removed Vehicle Number= "+vehicle.getNumber()+" Model= "+vehicle.getModel());
             JOptionPane.showMessageDialog(null, "Vehicle deleted");
         }else{
             JOptionPane.showMessageDialog(null, "Vehicle not deleted");
@@ -410,7 +414,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
             return;
         }
         if(answer==VEHICLE_ADDED){
-            
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Added Vehicle Number= "+vehicle.getNumber()+" model= "+vehicle.getModel());
             updateVehiclesTable();
             return;
         }

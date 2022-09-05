@@ -411,6 +411,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                 return;
             case CUSTOMER_ADDED:
                 dialogeLabel.setText("customer added");
+                LogModel userLog=new LogModel(currentUser);
+                userLog.uploadLog("Rented Vehicle Number= "+customer.getVehicleRented()+" to customer name="+customer.getName()+" phone="+customer.getPhoneNumber());
                 updateRentedValue(selectedVehicle.getNumber(),IS_RENTED);
                 updateAvailableVehiclesTable(1);
                 rentCustomerMaxSeatsTF.setText("");
@@ -431,6 +433,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         int answer=updateRentedValue(vehicleNumber,NOT_RENTED);
         
         if(answer==UPDATE_SUCCESSFUL){
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Changed vehicle status is_Rented="+NOT_RENTED+" (Not Rented)");
             updateRentedVehiclesTable();
         }else{
             

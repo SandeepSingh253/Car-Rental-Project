@@ -239,19 +239,21 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
 
         switch (answer) {
             case USERNAME_ALREAD_IN_USE:
-            JOptionPane.showMessageDialog(null, "Username already used");
-            break;
+                JOptionPane.showMessageDialog(null, "Username already used");
+                break;
             case UPDATE_SUCCESSFUL:
-            currentUser.setUsername(newUsername);
-            currentUser.setPassword(newPassword);
-            JOptionPane.showMessageDialog(null, "Value Updated");
-            profileUsernameLabel.setText(currentUser.getUsername());
-            break;
+                LogModel userLog=new LogModel(currentUser);
+                userLog.uploadLog("Updated Profile new Username "+newUsername);
+                currentUser.setUsername(newUsername);
+                currentUser.setPassword(newPassword);
+                JOptionPane.showMessageDialog(null, "Value Updated");
+                profileUsernameLabel.setText(currentUser.getUsername());
+                break;
             case UPDATE_UNSUCCESSFUL:
-            JOptionPane.showMessageDialog(null, "Error");
-            break;
+                JOptionPane.showMessageDialog(null, "Error");
+                break;
             default:
-            break;
+                break;
         }
     }//GEN-LAST:event_profileupdateProfileButtonActionPerformed
     
@@ -295,6 +297,8 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_vehicleButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        LogModel userLog=new LogModel(currentUser);
+        userLog.uploadLog("Logged Out");
         dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_logOutButtonActionPerformed

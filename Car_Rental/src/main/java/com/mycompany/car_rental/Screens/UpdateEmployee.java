@@ -304,6 +304,9 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
             return;
         }
         if(answer==USER_ADDED){
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Added Employee "+username);
+            
             addEmployeeDialogLabel.setText("Employee successfull added!!");
             addEmployeeDialogLabel.setForeground(Color.green);
             addEmployeeUNameTF.setText("");
@@ -360,6 +363,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         
         if(managerDeleted){
             updateEmployeeTable();
+            LogModel userLog=new LogModel(currentUser);
+            userLog.uploadLog("Removed Employee "+username);
             JOptionPane.showMessageDialog(null, "Employee deleted");
         }else{
             JOptionPane.showMessageDialog(null, "Employee not deleted");
@@ -387,7 +392,9 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
             case USERNAME_ALREAD_IN_USE:
                 break;
             case UPDATE_SUCCESSFUL:
-                 updateEmployeeTable();
+                updateEmployeeTable();
+                LogModel userLog=new LogModel(currentUser);
+                userLog.uploadLog("Updated Employee "+username+" to "+newUsername);
                 break;
             case UPDATE_UNSUCCESSFUL:
 
