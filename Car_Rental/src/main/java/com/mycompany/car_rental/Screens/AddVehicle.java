@@ -6,6 +6,7 @@ package com.mycompany.car_rental.Screens;
 
 import com.mycompany.car_rental.ConnectionClass.ConnectionClass;
 import constants.Values;
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -59,6 +60,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         updateVrentPDTF = new javax.swing.JTextField();
         updateVOldNumberLabel = new javax.swing.JLabel();
         updateVOldNumberTF = new javax.swing.JTextField();
+        updateVehicleDialogLabel = new javax.swing.JLabel();
         addVehiclesPanel = new javax.swing.JPanel();
         addVModelLabel = new javax.swing.JLabel();
         addVNumberLabel = new javax.swing.JLabel();
@@ -69,6 +71,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         addVNumberTF = new javax.swing.JTextField();
         addVMaxCapacityTF = new javax.swing.JTextField();
         addVrentPDTF = new javax.swing.JTextField();
+        addDialogLabel = new javax.swing.JLabel();
         optionPanel = new javax.swing.JPanel();
         addVehiclePanelButton = new javax.swing.JButton();
         goBackButton = new javax.swing.JButton();
@@ -84,6 +87,10 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tabbedPane.setBackground(new java.awt.Color(51, 51, 51));
+        tabbedPane.setForeground(new java.awt.Color(255, 255, 255));
+
+        removeVehiclesPanel.setBackground(new java.awt.Color(51, 51, 51));
         removeVehiclesPanel.setForeground(new java.awt.Color(0, 0, 0));
         removeVehiclesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -113,6 +120,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("RV", removeVehiclesPanel);
 
+        updateVehiclesPanel.setBackground(new java.awt.Color(51, 51, 51));
+        updateVehiclesPanel.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateVModelLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -174,9 +183,12 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
             }
         });
         updateVehiclesPanel.add(updateVOldNumberTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 108, 180, -1));
+        updateVehiclesPanel.add(updateVehicleDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 120, 20));
 
         tabbedPane.addTab("UV", updateVehiclesPanel);
 
+        addVehiclesPanel.setBackground(new java.awt.Color(51, 51, 51));
+        addVehiclesPanel.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addVModelLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -197,7 +209,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         addVrentPDLabel.setBackground(new java.awt.Color(51, 51, 51));
         addVrentPDLabel.setForeground(new java.awt.Color(255, 255, 255));
         addVrentPDLabel.setText("Rent Per Day");
-        addVehiclesPanel.add(addVrentPDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 108, -1, -1));
+        addVehiclesPanel.add(addVrentPDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         addButton.setBackground(new java.awt.Color(51, 51, 51));
         addButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -224,6 +236,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         addVrentPDTF.setBackground(new java.awt.Color(51, 51, 51));
         addVrentPDTF.setForeground(new java.awt.Color(255, 255, 255));
         addVehiclesPanel.add(addVrentPDTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 105, 180, -1));
+        addVehiclesPanel.add(addDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 150, 20));
 
         tabbedPane.addTab("AV", addVehiclesPanel);
 
@@ -285,6 +298,11 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
 
         getContentPane().add(optionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 450));
 
+        vehicleTabelScrollPane.setBackground(new java.awt.Color(51, 51, 51));
+        vehicleTabelScrollPane.setForeground(new java.awt.Color(255, 255, 255));
+
+        vehiclesTable.setBackground(new java.awt.Color(51, 51, 51));
+        vehiclesTable.setForeground(new java.awt.Color(255, 255, 255));
         vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -329,14 +347,18 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         if(updateVModelTF.getText().isBlank() || updateVNewNumberTF.getText().isBlank() || updateVOldNumberTF.getText().isBlank() || updateVMaxCapacityTF.getText().isBlank() || updateVrentPDTF.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "Text Field Empty");
+            //JOptionPane.showMessageDialog(null, "Text Field Empty");
+            updateVehicleDialogLabel.setText("Text Field Empty");
+            updateVehicleDialogLabel.setForeground(Color.red);
             return;
         }
         
         
         VehicleModel vehicle=vehicleExist(updateVOldNumberTF.getText());
         if(vehicle==null){
-            JOptionPane.showMessageDialog(null, "No Such Vehicle Exist");
+            //JOptionPane.showMessageDialog(null, "No Such Vehicle Exist");
+            updateVehicleDialogLabel.setText("No Such Vehicle Exist");
+            updateVehicleDialogLabel.setForeground(Color.red);
             return;
         }
         VehicleModel updatedVehicle=vehicle;
@@ -351,7 +373,9 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
             
             switch (answer) {
                 case NUMBER_ALREAD_IN_USE:
-                    JOptionPane.showMessageDialog(null, "Number alredy used");
+                    //JOptionPane.showMessageDialog(null, "Number alredy used");
+                    updateVehicleDialogLabel.setText("No Such Vehicle Exist");
+                    updateVehicleDialogLabel.setForeground(Color.red);
                     break;
                 case UPDATE_SUCCESSFUL:
                     LogModel userLog=new LogModel(currentUser);
@@ -398,7 +422,9 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         VehicleModel vehicle=new VehicleModel();
         
         if(addVModelTF.getText().isBlank() || addVNumberTF.getText().isBlank() || addVMaxCapacityTF.getText().isBlank() || addVrentPDTF.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "Text Field Empty");
+            //JOptionPane.showMessageDialog(null, "Text Field Empty");
+            addDialogLabel.setText("Text Field Empty");
+            addDialogLabel.setForeground(Color.red);
             return;
         }
         
@@ -410,10 +436,15 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         
         int answer = addVehicle(vehicle);
         if(answer==NUMBER_ALREAD_IN_USE){
-            JOptionPane.showMessageDialog(null, "Vechicle number alredy in database");
+            //JOptionPane.showMessageDialog(null, "Vechicle number alredy in database");
+            addDialogLabel.setText("Vechicle number alredy in database");
+            addDialogLabel.setForeground(Color.red);
             return;
         }
         if(answer==VEHICLE_ADDED){
+            addDialogLabel.setText("Vehicle added!!");
+            addDialogLabel.setForeground(Color.green);
+            resetTFAndDialog();
             LogModel userLog=new LogModel(currentUser);
             userLog.uploadLog("Added Vehicle Number= "+vehicle.getNumber()+" model= "+vehicle.getModel());
             updateVehiclesTable();
@@ -421,7 +452,8 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         }
         
         if(answer==VEHICLE_NOT_ADDED){
-            
+            addDialogLabel.setText("Vehicle Not Added");
+            addDialogLabel.setForeground(Color.red);
         }
         
         
@@ -559,9 +591,13 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
         return UPDATE_UNSUCCESSFUL;
     }
     
+    private void resetTFAndDialog(){
+        addDialogLabel.setText("");
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JLabel addDialogLabel;
     private javax.swing.JLabel addVMaxCapacityLabel;
     private javax.swing.JTextField addVMaxCapacityTF;
     private javax.swing.JLabel addVModelLabel;
@@ -591,6 +627,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
     private javax.swing.JLabel updateVOldNumberLabel;
     private javax.swing.JLabel updateVOldNumberLabel1;
     private javax.swing.JTextField updateVOldNumberTF;
+    private javax.swing.JLabel updateVehicleDialogLabel;
     private javax.swing.JButton updateVehiclePanelButton;
     private javax.swing.JPanel updateVehiclesPanel;
     private javax.swing.JLabel updateVrentPDLabel;

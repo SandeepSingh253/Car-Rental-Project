@@ -287,7 +287,7 @@ public class LoginPage extends javax.swing.JFrame implements Values{
                 count++;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
     }

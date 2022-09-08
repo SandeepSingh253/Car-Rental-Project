@@ -88,6 +88,9 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         vehiclesTable = new javax.swing.JTable();
         addRemoveUpdateManagerButtonPanel1 = new javax.swing.JPanel();
         updateVehiclesButton = new javax.swing.JButton();
+        logsPanel = new javax.swing.JPanel();
+        logTableScrollPane = new javax.swing.JScrollPane();
+        logsTable = new javax.swing.JTable();
         optionPanel = new javax.swing.JPanel();
         managersButton = new javax.swing.JButton();
         vehicleButton = new javax.swing.JButton();
@@ -97,9 +100,11 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         profileButton = new javax.swing.JButton();
         billingButton = new javax.swing.JButton();
         emplyeeButton = new javax.swing.JButton();
+        logsButton = new javax.swing.JButton();
         dashBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(800, 450));
         setUndecorated(true);
@@ -175,17 +180,14 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         managerAddmanagerDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddmanagerDialogLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        managerAddmanagerDialogLabel.setForeground(null);
         addManagerPanel.add(managerAddmanagerDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 20));
 
         managerAddManagerUNameDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddManagerUNameDialogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        managerAddManagerUNameDialogLabel.setForeground(null);
         addManagerPanel.add(managerAddManagerUNameDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 20, 20));
 
         managerAddManagerPasswordDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddManagerPasswordDialogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        managerAddManagerPasswordDialogLabel.setForeground(null);
         addManagerPanel.add(managerAddManagerPasswordDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 20, 20));
 
         addRemoveUpdateTabbedPanel.addTab("AM", addManagerPanel);
@@ -409,6 +411,25 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Vehicles", vehiclesInternalFrame);
 
+        logsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        logTableScrollPane.setViewportView(logsTable);
+
+        logsPanel.add(logTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 640, 440));
+
+        tabbedPane.addTab("Logs", logsPanel);
+
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -110, 640, 560));
 
         optionPanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -497,6 +518,17 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             }
         });
         optionPanel.add(emplyeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 100, -1));
+
+        logsButton.setBackground(new java.awt.Color(102, 102, 102));
+        logsButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        logsButton.setForeground(new java.awt.Color(255, 255, 255));
+        logsButton.setText("Logs");
+        logsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logsButtonActionPerformed(evt);
+            }
+        });
+        optionPanel.add(logsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 100, -1));
 
         dashBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashBack.jpg"))); // NOI18N
         optionPanel.add(dashBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 160, 500));
@@ -845,6 +877,33 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         }
     }
     
+    private void updateLogsTable(){
+        final String statement = "SELECT * from logs";
+        try {
+            PreparedStatement preparedStatement = ConnectionClass.getInstance().connection.prepareStatement(statement);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            final String[] headerName = {"User ID","Username", "User Role","Log"};
+            DefaultTableModel model = new DefaultTableModel(null, headerName){  
+                @Override
+                public boolean isCellEditable(int row,int column){
+                 return false;   
+                }
+            };
+            logsTable.setModel(model);
+            Object[] row = new Object[4];
+
+            while (resultSet.next()) {
+                row[0] = resultSet.getString("user_id");
+                row[1] = resultSet.getString("user_name");
+                row[2] = resultSet.getString("user_role");
+                row[3] = resultSet.getString("log");
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void managerUpdateManagerNewUnameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerUpdateManagerNewUnameTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_managerUpdateManagerNewUnameTFActionPerformed
@@ -863,6 +922,11 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         new UpdateEmployee(currentUser).setVisible(true);
         dispose(); 
     }//GEN-LAST:event_emplyeeButtonActionPerformed
+
+    private void logsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logsButtonActionPerformed
+        tabbedPane.setSelectedComponent(logsPanel);
+        updateLogsTable();
+    }//GEN-LAST:event_logsButtonActionPerformed
 
     private int updateUser(UserModel user){
         String newUsername=user.getUsername();
@@ -961,6 +1025,10 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JLabel dashBackground;
     private javax.swing.JButton emplyeeButton;
     private javax.swing.JButton logOutButton;
+    private javax.swing.JScrollPane logTableScrollPane;
+    private javax.swing.JButton logsButton;
+    private javax.swing.JPanel logsPanel;
+    private javax.swing.JTable logsTable;
     private javax.swing.JButton managerAddManagerButton;
     private javax.swing.JLabel managerAddManagerPasswordDialogLabel;
     private javax.swing.JTextField managerAddManagerPasswordTF;
