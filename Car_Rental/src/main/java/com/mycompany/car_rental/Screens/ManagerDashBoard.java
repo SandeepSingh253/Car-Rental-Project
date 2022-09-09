@@ -76,6 +76,7 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        profilePanel.setBackground(new java.awt.Color(51, 51, 51));
         profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profileUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -138,6 +139,8 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
         vehiclesInternalFrame.setVisible(true);
         vehiclesInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        vehiclesTable.setBackground(new java.awt.Color(51, 51, 51));
+        vehiclesTable.setForeground(new java.awt.Color(255, 255, 255));
         vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -150,6 +153,8 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
 
         vehiclesInternalFrame.getContentPane().add(vehicleTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 640, 380));
 
+        updateButtonPanel.setBackground(new java.awt.Color(51, 51, 51));
+        updateButtonPanel.setForeground(new java.awt.Color(255, 255, 255));
         updateButtonPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateVehiclesButton.setBackground(new java.awt.Color(51, 51, 51));
@@ -171,6 +176,8 @@ public class ManagerDashBoard extends javax.swing.JFrame implements Values{
         managersPanel.setBackground(new java.awt.Color(255, 255, 255));
         managersPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        managersTable.setBackground(new java.awt.Color(51, 51, 51));
+        managersTable.setForeground(new java.awt.Color(255, 255, 255));
         managersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

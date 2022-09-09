@@ -113,6 +113,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         adminsPanel.setBackground(new java.awt.Color(255, 255, 255));
         adminsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        adminsTable.setBackground(new java.awt.Color(51, 51, 51));
+        adminsTable.setForeground(new java.awt.Color(255, 255, 255));
         adminsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -135,9 +137,12 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         managesrInternalFrame.setVisible(true);
         managesrInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addRemoveUpdateTabbedPanel.setBackground(new java.awt.Color(51, 51, 51));
         addRemoveUpdateTabbedPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        addRemoveUpdateTabbedPanel.setForeground(new java.awt.Color(255, 255, 255));
         addRemoveUpdateTabbedPanel.setPreferredSize(new java.awt.Dimension(314, 185));
 
+        addManagerPanel.setBackground(new java.awt.Color(51, 51, 51));
         addManagerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addMUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -192,6 +197,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         addRemoveUpdateTabbedPanel.addTab("AM", addManagerPanel);
 
+        removeManagerPanel.setBackground(new java.awt.Color(51, 51, 51));
+        removeManagerPanel.setForeground(new java.awt.Color(255, 255, 255));
         removeManagerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         removeMUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -220,6 +227,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         addRemoveUpdateTabbedPanel.addTab("RM", removeManagerPanel);
 
+        updateManagerPanel.setBackground(new java.awt.Color(51, 51, 51));
+        updateManagerPanel.setForeground(new java.awt.Color(255, 255, 255));
         updateManagerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         managerUpdateManagerUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -268,6 +277,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         managesrInternalFrame.getContentPane().add(addRemoveUpdateTabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 6, 480, -1));
 
+        addRemoveUpdateManagerButtonPanel.setBackground(new java.awt.Color(51, 51, 51));
+        addRemoveUpdateManagerButtonPanel.setForeground(new java.awt.Color(255, 255, 255));
         addRemoveUpdateManagerButtonPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addManagerAccessButton.setBackground(new java.awt.Color(51, 51, 51));
@@ -305,6 +316,11 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         managesrInternalFrame.getContentPane().add(addRemoveUpdateManagerButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 190));
 
+        managerTableScrollPane.setBackground(new java.awt.Color(51, 51, 51));
+        managerTableScrollPane.setForeground(new java.awt.Color(255, 255, 255));
+
+        managerTable.setBackground(new java.awt.Color(51, 51, 51));
+        managerTable.setForeground(new java.awt.Color(255, 255, 255));
         managerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -322,6 +338,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Managers", managesrInternalFrame);
 
+        profilePanel.setBackground(new java.awt.Color(51, 51, 51));
+        profilePanel.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profileUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -354,6 +372,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         profilePanel.add(profileupdateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, -1, -1));
 
+        profileCurrentUserLabel.setBackground(new java.awt.Color(51, 51, 51));
         profileCurrentUserLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         profileCurrentUserLabel.setForeground(new java.awt.Color(255, 255, 255));
         profileCurrentUserLabel.setText("Current User");
@@ -383,6 +402,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         vehiclesInternalFrame.setVisible(true);
         vehiclesInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        vehiclesTable.setBackground(new java.awt.Color(51, 51, 51));
+        vehiclesTable.setForeground(new java.awt.Color(255, 255, 255));
         vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -395,8 +416,12 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         vehiclesInternalFrame.getContentPane().add(vehicleTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 640, 380));
 
+        addRemoveUpdateManagerButtonPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        addRemoveUpdateManagerButtonPanel1.setForeground(new java.awt.Color(255, 255, 255));
         addRemoveUpdateManagerButtonPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        updateVehiclesButton.setBackground(new java.awt.Color(51, 51, 51));
+        updateVehiclesButton.setForeground(new java.awt.Color(255, 255, 255));
         updateVehiclesButton.setText("Update List");
         updateVehiclesButton.setPreferredSize(new java.awt.Dimension(123, 22));
         updateVehiclesButton.setVerifyInputWhenFocusTarget(false);
@@ -413,6 +438,8 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
         logsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        logsTable.setBackground(new java.awt.Color(51, 51, 51));
+        logsTable.setForeground(new java.awt.Color(255, 255, 255));
         logsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -436,8 +463,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         optionPanel.setPreferredSize(new java.awt.Dimension(150, 450));
         optionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        managersButton.setBackground(new java.awt.Color(102, 102, 102));
-        managersButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        managersButton.setBackground(new java.awt.Color(51, 51, 51));
         managersButton.setForeground(new java.awt.Color(255, 255, 255));
         managersButton.setText("Managers");
         managersButton.addActionListener(new java.awt.event.ActionListener() {
@@ -447,8 +473,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(managersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, -1));
 
-        vehicleButton.setBackground(new java.awt.Color(102, 102, 102));
-        vehicleButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        vehicleButton.setBackground(new java.awt.Color(51, 51, 51));
         vehicleButton.setForeground(new java.awt.Color(255, 255, 255));
         vehicleButton.setText("Vehicles");
         vehicleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -458,8 +483,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(vehicleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, -1));
 
-        logOutButton.setBackground(new java.awt.Color(102, 102, 102));
-        logOutButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        logOutButton.setBackground(new java.awt.Color(51, 51, 51));
         logOutButton.setForeground(new java.awt.Color(255, 255, 255));
         logOutButton.setText("LOG OUT");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -475,8 +499,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         adminLabel.setText("ADMIN");
         optionPanel.add(adminLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 110, 40));
 
-        adminsButton.setBackground(new java.awt.Color(102, 102, 102));
-        adminsButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        adminsButton.setBackground(new java.awt.Color(51, 51, 51));
         adminsButton.setForeground(new java.awt.Color(255, 255, 255));
         adminsButton.setText("Admins");
         adminsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -486,8 +509,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(adminsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 100, -1));
 
-        profileButton.setBackground(new java.awt.Color(102, 102, 102));
-        profileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        profileButton.setBackground(new java.awt.Color(51, 51, 51));
         profileButton.setForeground(new java.awt.Color(255, 255, 255));
         profileButton.setText("PROFILE");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
@@ -497,8 +519,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 80, -1));
 
-        billingButton.setBackground(new java.awt.Color(102, 102, 102));
-        billingButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        billingButton.setBackground(new java.awt.Color(51, 51, 51));
         billingButton.setForeground(new java.awt.Color(255, 255, 255));
         billingButton.setText("Billing");
         billingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -508,8 +529,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(billingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, -1));
 
-        emplyeeButton.setBackground(new java.awt.Color(102, 102, 102));
-        emplyeeButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        emplyeeButton.setBackground(new java.awt.Color(51, 51, 51));
         emplyeeButton.setForeground(new java.awt.Color(255, 255, 255));
         emplyeeButton.setText("Employee");
         emplyeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -519,8 +539,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         });
         optionPanel.add(emplyeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 100, -1));
 
-        logsButton.setBackground(new java.awt.Color(102, 102, 102));
-        logsButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        logsButton.setBackground(new java.awt.Color(51, 51, 51));
         logsButton.setForeground(new java.awt.Color(255, 255, 255));
         logsButton.setText("Logs");
         logsButton.addActionListener(new java.awt.event.ActionListener() {

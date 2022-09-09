@@ -81,10 +81,14 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        returnInternalFrame.setBackground(new java.awt.Color(51, 51, 51));
         returnInternalFrame.setBorder(null);
+        returnInternalFrame.setForeground(new java.awt.Color(255, 255, 255));
         returnInternalFrame.setVisible(true);
         returnInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        onRentVehiclesTable.setBackground(new java.awt.Color(51, 51, 51));
+        onRentVehiclesTable.setForeground(new java.awt.Color(255, 255, 255));
         onRentVehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -112,7 +116,9 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
 
         tabbedPane.addTab("Return", returnInternalFrame);
 
+        rentInternalFrame.setBackground(new java.awt.Color(51, 51, 51));
         rentInternalFrame.setBorder(null);
+        rentInternalFrame.setForeground(new java.awt.Color(255, 255, 255));
         rentInternalFrame.setVisible(true);
         rentInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -185,6 +191,8 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
         });
         rentInternalFrame.getContentPane().add(rentCustomerDaysTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 180, -1));
 
+        rentSelectVehicleTable.setBackground(new java.awt.Color(51, 51, 51));
+        rentSelectVehicleTable.setForeground(new java.awt.Color(255, 255, 255));
         rentSelectVehicleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -52,12 +52,16 @@ public class ReceiptScreen extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         receiptTA.setEditable(false);
+        receiptTA.setBackground(new java.awt.Color(51, 51, 51));
         receiptTA.setColumns(20);
+        receiptTA.setForeground(new java.awt.Color(255, 255, 255));
         receiptTA.setRows(5);
         jScrollPane1.setViewportView(receiptTA);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 269));
 
+        closeButton.setBackground(new java.awt.Color(51, 51, 51));
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("CLOSE");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,8 @@ public class ReceiptScreen extends javax.swing.JFrame {
         });
         getContentPane().add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 275, -1, -1));
 
+        printButton.setBackground(new java.awt.Color(51, 51, 51));
+        printButton.setForeground(new java.awt.Color(255, 255, 255));
         printButton.setText("PRINT");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

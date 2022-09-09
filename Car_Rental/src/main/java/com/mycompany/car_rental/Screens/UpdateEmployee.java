@@ -85,6 +85,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         addRemoveUpdateTabbedPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addRemoveUpdateTabbedPanel.setPreferredSize(new java.awt.Dimension(314, 185));
 
+        addEmployeePanel.setBackground(new java.awt.Color(51, 51, 51));
+        addEmployeePanel.setForeground(new java.awt.Color(255, 255, 255));
         addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addEUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -128,6 +130,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
         addRemoveUpdateTabbedPanel.addTab("AM", addEmployeePanel);
 
+        removeEmployeePanel.setBackground(new java.awt.Color(51, 51, 51));
+        removeEmployeePanel.setForeground(new java.awt.Color(255, 255, 255));
         removeEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         removeEUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -151,6 +155,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
         addRemoveUpdateTabbedPanel.addTab("RM", removeEmployeePanel);
 
+        updateEmployeePanel.setBackground(new java.awt.Color(51, 51, 51));
+        updateEmployeePanel.setForeground(new java.awt.Color(255, 255, 255));
         updateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateEmployeeUnameLabel.setBackground(new java.awt.Color(51, 51, 51));
@@ -251,6 +257,8 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
         getContentPane().add(addRemoveUpdateEmployeeButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 450));
 
+        employeeTable.setBackground(new java.awt.Color(51, 51, 51));
+        employeeTable.setForeground(new java.awt.Color(255, 255, 255));
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

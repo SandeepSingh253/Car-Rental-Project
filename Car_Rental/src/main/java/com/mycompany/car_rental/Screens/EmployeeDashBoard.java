@@ -69,7 +69,8 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profilePanel.setBackground(new java.awt.Color(102, 102, 102));
+        profilePanel.setBackground(new java.awt.Color(51, 51, 51));
+        profilePanel.setForeground(new java.awt.Color(255, 255, 255));
         profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profileUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -134,7 +135,8 @@ public class EmployeeDashBoard extends javax.swing.JFrame implements Values{
 
         vehicleTableScrollPane.setForeground(new java.awt.Color(102, 102, 102));
 
-        vehiclesTable.setBackground(new java.awt.Color(102, 102, 102));
+        vehiclesTable.setBackground(new java.awt.Color(51, 51, 51));
+        vehiclesTable.setForeground(new java.awt.Color(255, 255, 255));
         vehiclesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
