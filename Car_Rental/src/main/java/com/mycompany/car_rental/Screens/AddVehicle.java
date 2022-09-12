@@ -512,7 +512,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
                 model.addRow(row);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddVehicle.class.getName()).log(Level.SEVERE, null, ex);
         }
  
     }  
@@ -545,7 +545,7 @@ public class AddVehicle extends javax.swing.JFrame implements Values{
                     return VEHICLE_ADDED;
                 }
             } catch (SQLException ex) {
-                System.out.println("error in " + AdminSignUp.class.getName() + " = " + ex);
+                System.out.println("error in " + AddVehicle.class.getName() + " = " + ex);
             }
         return VEHICLE_NOT_ADDED;
     }

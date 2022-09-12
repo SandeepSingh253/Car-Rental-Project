@@ -54,6 +54,7 @@ public class AdminSignUp extends javax.swing.JFrame implements Values{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(800, 450));
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

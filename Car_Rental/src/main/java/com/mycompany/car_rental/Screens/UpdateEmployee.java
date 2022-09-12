@@ -279,9 +279,6 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
-        addEmployeeDialogLabel.setText("");
-        addEmployeeUNameDialogLabel.setText("");
-        addEmployeeUNameDialogLabel.setText("");
                 
         String username = addEmployeeUNameTF.getText();
         String password = addEmployeePasswordTF.getText();
@@ -290,33 +287,24 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         
         
         if (username.isBlank()) {
-            addEmployeeUNameDialogLabel.setText(" *");
-            if (password.isBlank()) {
-                addEmployeePasswordDialogLabel.setText(" *");
-            }
+            JOptionPane.showMessageDialog(null, "Enter username");
             return;
         }
         if (password.isBlank()) {
-            addEmployeePasswordDialogLabel.setText(" *");
-            if (username.isBlank()) {
-                addEmployeeUNameDialogLabel.setText(" *");
-                return;
-            }
+            JOptionPane.showMessageDialog(null, "Enter password");
+            return;
         }
         
         int answer = addUser(username,password,role);
         
         if(answer==USERNAME_ALREAD_IN_USE){
-            addEmployeeDialogLabel.setText("username already exists");
-            addEmployeeDialogLabel.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "username already exists");
             return;
         }
         if(answer==USER_ADDED){
             LogModel userLog=new LogModel(currentUser);
             userLog.uploadLog("Added Employee "+username);
-            
-            addEmployeeDialogLabel.setText("Employee successfull added!!");
-            addEmployeeDialogLabel.setForeground(Color.green);
+            JOptionPane.showMessageDialog(null, "Employee successfull added!!");
             addEmployeeUNameTF.setText("");
             addEmployeePasswordTF.setText("");
             updateEmployeeTable();
@@ -324,10 +312,7 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
         }
         
         if(answer==USER_NOT_ADDED){
-            addEmployeeDialogLabel.setText("Employee not added!!");
-            addEmployeeDialogLabel.setForeground(Color.red);
-            addEmployeeUNameTF.setText("");
-            addEmployeePasswordTF.setText("");
+            JOptionPane.showMessageDialog(null, "Employee not added!!");
         }
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
@@ -356,6 +341,10 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
     private void removeEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeeButtonActionPerformed
         String username =removeEmployeeUNameTF.getText();
+        if(username.isBlank()){
+            JOptionPane.showMessageDialog(null, "ENter username");
+            return;
+        } 
         UserModel user=userExist(username);
         if(user==null){
             JOptionPane.showMessageDialog(null, "No such Employee exist");
@@ -381,6 +370,10 @@ public class UpdateEmployee extends javax.swing.JFrame implements Values {
 
     private void updateEmployeeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmployeeUpdateButtonActionPerformed
         String username = updateEmployeeUnameTF.getText();
+        if(username.isBlank()){
+            JOptionPane.showMessageDialog(null, "Enter username");
+            return;
+        }
         UserModel user=userExist(username);
         if(user==null){
             JOptionPane.showMessageDialog(null, "No Such User Exist");

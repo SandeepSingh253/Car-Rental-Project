@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.*;
 
@@ -372,7 +373,11 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_rentCustomerMaxSeatsTFActionPerformed
 
     private void rentFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentFilterButtonActionPerformed
-
+        
+        if(rentCustomerMaxSeatsTF.getText().isBlank()){
+           JOptionPane.showMessageDialog(null, "Enter Filter value");
+           return;
+        }
         int filterValue=Integer.parseInt(rentCustomerMaxSeatsTF.getText());
         
         if(filterValue<0){
@@ -399,7 +404,12 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     private void billButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billButtonActionPerformed
         if(rentCustomerNameTF.getText().isBlank() || rentCustomerPhoneNumberTF.getText().isBlank() |
                 rentCustomerAddressTF.getText().isBlank() || rentCustomerRentedOnTF.getText().isBlank() || 
-                rentCustomerDaysTF.getText().isBlank() || selectedVehicle==null){
+                rentCustomerDaysTF.getText().isBlank() ){
+            JOptionPane.showMessageDialog(null, "Text Fields Empty");
+            return;
+        }
+        if(selectedVehicle==null){
+            JOptionPane.showMessageDialog(null, "Vehicle not selected");
             return;
         }
         
@@ -427,6 +437,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                 new ReceiptScreen(customer).setVisible(true);
                 return;
             case CUSTOMER_NOT_ADDED:
+                JOptionPane.showMessageDialog(null, "Cutomer not added!!");
                 break;
             default:
                 break;
@@ -434,8 +445,14 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_billButtonActionPerformed
 
     private void returnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnedButtonActionPerformed
+        
         DefaultTableModel dtm = (DefaultTableModel) onRentVehiclesTable.getModel();
         int selectedRow = onRentVehiclesTable.getSelectedRow();
+        
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a vehicle first");
+            return;
+        }
         String vehicleNumber= (String) dtm.getValueAt(selectedRow, 2);
         
         int answer=updateRentedValue(vehicleNumber,NOT_RENTED);
@@ -444,6 +461,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
             LogModel userLog=new LogModel(currentUser);
             userLog.uploadLog("Changed vehicle status is_Rented="+NOT_RENTED+" (Not Rented)");
             updateRentedVehiclesTable();
+            //JOptionPane.showMessageDialog(null, "Vehicle returned");
         }else{
             
         } 
@@ -500,7 +518,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                 model.addRow(row);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BillingScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -533,7 +551,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                 model.addRow(row);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminDashBoard.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BillingScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
  
     }  
@@ -551,7 +569,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                 return UPDATE_SUCCESSFUL;
             } 
         } catch (SQLException ex) {
-            System.out.println("error in " + AdminDashBoard.class.getName() + " = " + ex);
+            System.out.println("error in " + BillingScreen.class.getName() + " = " + ex);
         }
         return UPDATE_UNSUCCESSFUL;
     }
@@ -611,7 +629,7 @@ public class BillingScreen extends javax.swing.JFrame implements Values{
                     return CUSTOMER_ADDED;
                 }
             } catch (SQLException ex) {
-                System.out.println("error in " + AdminSignUp.class.getName() + " = " + ex);
+                System.out.println("error in " + BillingScreen.class.getName() + " = " + ex);
             }
         return CUSTOMER_NOT_ADDED;
     }

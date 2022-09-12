@@ -52,8 +52,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         managerAddManagerPasswordTF = new javax.swing.JTextField();
         managerAddManagerButton = new javax.swing.JButton();
         managerAddmanagerDialogLabel = new javax.swing.JLabel();
-        managerAddManagerUNameDialogLabel = new javax.swing.JLabel();
-        managerAddManagerPasswordDialogLabel = new javax.swing.JLabel();
         removeManagerPanel = new javax.swing.JPanel();
         removeMUnameLabel = new javax.swing.JLabel();
         managerRemoveManagerUNameTF = new javax.swing.JTextField();
@@ -186,14 +184,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
         managerAddmanagerDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
         managerAddmanagerDialogLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         addManagerPanel.add(managerAddmanagerDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 20));
-
-        managerAddManagerUNameDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
-        managerAddManagerUNameDialogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        addManagerPanel.add(managerAddManagerUNameDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 20, 20));
-
-        managerAddManagerPasswordDialogLabel.setBackground(new java.awt.Color(51, 51, 51));
-        managerAddManagerPasswordDialogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        addManagerPanel.add(managerAddManagerPasswordDialogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 20, 20));
 
         addRemoveUpdateTabbedPanel.addTab("AM", addManagerPanel);
 
@@ -585,11 +575,6 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     }//GEN-LAST:event_profileButtonActionPerformed
 
     private void managerAddManagerUNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerAddManagerUNameTFActionPerformed
-        managerAddManagerUNameDialogLabel.setText("");
-        if (managerAddManagerUNameTF.getText().isBlank()) {
-            managerAddManagerUNameDialogLabel.setText(" *");
-            return;
-        }
         managerAddManagerPasswordTF.requestFocus();
     }//GEN-LAST:event_managerAddManagerUNameTFActionPerformed
 
@@ -652,39 +637,29 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
 
     private void managerAddManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerAddManagerButtonActionPerformed
         
-        managerAddmanagerDialogLabel.setText("");
-        managerAddManagerUNameDialogLabel.setText("");
-        managerAddManagerUNameDialogLabel.setText("");
+        
                 
         String username = managerAddManagerUNameTF.getText();
         String password = managerAddManagerPasswordTF.getText();
         int role=MANAGER_ROLE;
-        
-        
-        
         if (username.isBlank()) {
-            managerAddManagerUNameDialogLabel.setText(" *");
-            if (password.isBlank()) {
-                managerAddManagerPasswordDialogLabel.setText(" *");
-            }
+            JOptionPane.showMessageDialog(null, "Enter username");
             return;
         }
         if (password.isBlank()) {
-            managerAddManagerPasswordDialogLabel.setText(" *");
-            if (username.isBlank()) {
-                managerAddManagerUNameDialogLabel.setText(" *");
-                return;
-            }
+            JOptionPane.showMessageDialog(null, "Enter password");
+            return;
         }
         
         int answer = addUser(username,password,role);
         if(answer==USERNAME_ALREAD_IN_USE){
-            managerAddmanagerDialogLabel.setText("username already exists");
-            managerAddmanagerDialogLabel.setForeground(Color.red);
+            
+            JOptionPane.showMessageDialog(null, "username already exists");
             return;
         }
         if(answer==USER_ADDED){
             managerAddmanagerDialogLabel.setText("Manager successfull added!!");
+            //JOptionPane.showMessageDialog(null, "username already exists");
             managerAddmanagerDialogLabel.setForeground(Color.green);
             managerAddManagerUNameTF.setText("");
             managerAddManagerPasswordTF.setText("");
@@ -720,6 +695,10 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private void managerRemoveManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerRemoveManagerButtonActionPerformed
         
         String username =managerRemoveManagerUNameTF.getText();
+        if(username.isBlank()){
+            JOptionPane.showMessageDialog(null, "Enter Username");
+            return;
+        }
         UserModel user=userExist(username);
         if(user==null){
             JOptionPane.showMessageDialog(null, "No such manager exist");
@@ -748,6 +727,10 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private void managerUpdateManagerUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerUpdateManagerUpdateButtonActionPerformed
         
         String username = managerUpdateManagerUnameTF.getText();
+        if(username.isBlank()){
+            JOptionPane.showMessageDialog(null, "Enter username");
+            return;
+        }
         UserModel user=userExist(username);
         if(user==null){
             JOptionPane.showMessageDialog(null, "No Such User Exist");
@@ -778,10 +761,10 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
             case UPDATE_SUCCESSFUL:
                 LogModel userLog=new LogModel(currentUser);
                 userLog.uploadLog("Updated Manager "+username+" to "+newUsername);
-                 updateManagerTable();
+                updateManagerTable();
                 break;
             case UPDATE_UNSUCCESSFUL:
-
+                JOptionPane.showMessageDialog(null, "Update unsucessful!!");
                 break;
             default:
                 break;
@@ -1049,9 +1032,7 @@ public class AdminDashBoard extends javax.swing.JFrame implements Values{
     private javax.swing.JPanel logsPanel;
     private javax.swing.JTable logsTable;
     private javax.swing.JButton managerAddManagerButton;
-    private javax.swing.JLabel managerAddManagerPasswordDialogLabel;
     private javax.swing.JTextField managerAddManagerPasswordTF;
-    private javax.swing.JLabel managerAddManagerUNameDialogLabel;
     private javax.swing.JTextField managerAddManagerUNameTF;
     private javax.swing.JLabel managerAddmanagerDialogLabel;
     private javax.swing.JButton managerRemoveManagerButton;
